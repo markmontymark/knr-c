@@ -1,0 +1,154 @@
+Chapter 1
+
+1-16 pg 30
+Print the length of arbitrarily long input lines and all the text in line
+
+1-17 pg 31
+Print all input lines longer than 80 characters
+
+1-18 pg 31
+Remove trailing whitespace (except newline) from input lines and
+	delete blank lines
+
+1-20 pg 34
+detab - replace tabs with N spaces
+
+1-21 pg 34
+entab - replace N spaces with tabs
+
+1-22 pg 34
+fold long input lines into two or more shorter lines with max length of 80 chars
+
+1-23 pg 34
+Remove all /* */ comments from a source file
+
+1-24 pg 34
+Write a program that checks for balance with parentheses, brackets, braces
+
+
+
+Chapter 2
+
+2-1 pg 36
+Write a program to print out ranges of char, short, int, long vars (both signed and unsigned)
+
+2-3 pg 46
+Write htoi and itoh, 
+	which converts a char * of hex digits into an int number and back to char * of
+	int digits into a hex number
+
+2-4 pg 48
+	Write a function, squeeze(char *  srcString,char * subString) that deletes all occurences 
+	of subString in srcString
+
+2-6 pg 49
+	Write setbits(int x,va_args....)
+	that sets each bit flag pass in a varargs style
+
+
+
+Chapter 3
+3-2 pg 60 
+	Write escape(to,from) which converts newline to \n and tab to \t
+
+3-3 pg 63
+	Write an expand(str1,str2) to expand shorthand notations of a-z, 0-9
+
+
+
+
+Chapter 4
+
+4-1 pg 71
+	Write a strrindex(s,t) function that return the last occurrence of t in s or -1 if not found
+	(this can be compared to rindex?)
+
+4-2 pg 73
+	Write an atof  function tht handles scientific notation
+
+4-3 thru 4-10 pg 79
+	Write a calculator program, hello TI-80!!
+
+4-12 pg 88
+	Adapt printd, writing a recursive itoa
+
+
+
+
+Chapter 5
+	
+5-3 pg 107
+	Write a pointer based version of strcat(dest,src)
+
+5-4
+	Write strend (better called endsWith(str,substr)) that returns 1 if str ends with substr
+
+5-7 pg 110
+	Rewrite readlines() to store lines provided by main() rather than calling alloc.
+	Benchmark the difference..which is better?
+
+5-9 pg 114
+	Rewrite day_of_year and month_day with pointers instead of indexing
+
+5-13 p 118
+	Write tail(int n) to print last n lines...also how about allowing for tail -f ?
+
+5-17 pg  121
+	Write a sort() to sort lines, allow for an n arg that sorts by field number n
+
+
+
+
+Chapter 6
+
+6-1 pg 136
+	Update getword to handle underscores, string constants, comments, preprocessor control lines
+
+6-2 thru 6-4 pg 143
+	Write a cross-referencer that prints a list of all words in  a document and, for each word, a list
+	of the line numbers of occurences of each word.  Have an ignore list of words like 'a', 'the, etc.
+
+6-5 pg 145
+	Write a function, undef that removes entries from lookup table
+
+
+	
+
+Chapter 7
+	7-1 pg 153
+	Write a program, like rcfile, that changes behavior based on name of argv[0]
+
+7-2 pg 155
+	Write a program to print its input in a sensible way:
+	sensible means
+		- indented and max line length (72 chars)
+		- replace non-graphic chars with in hexadecimal according to local (locale?) custom
+
+7-3 pg 156
+	Write my own printf that handles %<letter> replacements for user-defined objects
+
+
+
+
+Chapter 8
+
+8-1 pg 174
+	Rewrite cat with read/write/open/close instead of standard library equivalents.
+	Which is faster, my own cat or the real cat?
+
+8-3 pg 179
+	Design and write _flushbuf(), fflush(), fclose()
+
+8-4
+	fseek is identical to lseek, except that fseek takes a file pointer, not a file descriptor
+	write fseek.
+
+8-5 pg 184
+	modify fsize to point all info contained in inode entries
+
+8-6 pg 189
+	Rewrite calloc(n, size) using malloc
+
+8-7
+	Rewrite malloc and add bounds checking
+

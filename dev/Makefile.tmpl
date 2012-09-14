@@ -1,0 +1,6 @@
+bin/__FILE__: obj/__FILE__.o obj/common.o
+	gcc -std=gnu11 -g -o bin/__FILE__ obj/__FILE__.o obj/common.o
+
+obj/__FILE__.o: src/__FILE__.c src/common.h
+	gcc -std=gnu11 -g -c src/__FILE__.c -o obj/__FILE__.o
+
