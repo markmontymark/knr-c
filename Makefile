@@ -1,7 +1,9 @@
 B = bin
 O = obj
 
-all: $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/btest $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 $B/hashtable_example $O/common.o $O/sorted_tree.o $B/sorted_tree_example $B/sorted_tree_generic_example $O/ini.o $B/ini_example
+
+
+all: init $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/btest $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 $B/hashtable_example $O/common.o $O/sorted_tree.o $B/sorted_tree_example $B/sorted_tree_generic_example $O/ini.o $B/ini_example
 
 $B/1-16: $O/1-16.o $O/common.o
 	gcc -std=gnu11 -g -o $B/1-16 $O/1-16.o $O/common.o
@@ -292,6 +294,13 @@ $B/ini_example: $O/ini_example.o $O/ini.o
 
 $O/ini_example.o: src/ini_example.c src/ini.h
 	gcc -std=gnu11 -g -c src/ini_example.c -o $O/ini_example.o
+
+clean:
+	rm -rf $O $B
+
+init: 
+	mkdir -p $O $B
+
 
 ##
 ## Creating libraries
