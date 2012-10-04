@@ -43,7 +43,7 @@ void usage(const char * usage_msg, const char * progname)
 {
    char rcFilename[256];
    get_rcfile(rcFilename,progname);
-	printf("\
+	fprintf(stderr,"\
 Program: %s\n\
 Purpose: %s\n\
 data file readable (data/%s): %s\n\

@@ -1,14 +1,9 @@
 
-// This file auto-generated on Wed Aug 15 07:52:40 2012_
-
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
 #include "common.h"
 
 const char * USAGE = "Remove all /* */ comments from a source file";
 
-void impl( char * progname, int argc, char ** argv );
+void impl( int argc, char ** argv );
 void removeMultilineComment( char * filename );
 
 int main( int argc, char ** argv )
@@ -16,11 +11,11 @@ int main( int argc, char ** argv )
 	char * progname = argv[0];
 	get_progname(progname);
 	usage(USAGE,progname);
-	impl(progname,argc,argv);
+	impl(argc,argv);
 	return 0;
 }
 
-void impl( char * progname, int argc, char ** argv )
+void impl(int argc, char ** argv )
 {
 	for( int i = 1; i < 	argc ; i++ )
 		removeMultilineComment( argv[i] );

@@ -1,11 +1,4 @@
 
-// This file auto-generated on Wed Aug 15 07:52:40 2012_
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
-#include <assert.h>
 #include "common.h"
 
 const char * USAGE = "Remove trailing whitespace (except newline) from input lines and delete blank lines";
@@ -49,8 +42,6 @@ char * remove_trailing_spaces(char * line)
 		
 	while( --i > -1 && line[i] == ' ') 
 		;
-
-	//printf("len is %d, start of last space chars is %d\n", len, i);
 
 	if( i != (len - 1))
 	{

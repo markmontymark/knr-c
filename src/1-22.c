@@ -1,17 +1,11 @@
 
-// This file auto-generated on Wed Aug 15 07:52:40 2012_
-
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
 #include "common.h"
 
 const char * USAGE = "fold long input lines into two or more shorter lines with max length of 80 chars";
 const int MAX_LINELENGTH = 80;
 const int MAX_CHARS = 1024;
 
-
-void impl( char * progname );
+void impl( );
 
 int main( int argc, char ** argv )
 {
@@ -22,7 +16,7 @@ int main( int argc, char ** argv )
 	return 0;
 }
 
-void impl( char * progname )
+void impl( )
 {	
 	char * charsRead;
 	char buf[MAX_CHARS];

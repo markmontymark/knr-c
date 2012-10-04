@@ -1,9 +1,23 @@
 B = bin
 O = obj
+#I = -Ilibmrk_include
+L = -L./lib
+#D = -lmrk
+
+all: init $B/1-4 $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/1-24-stack $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 $O/common.o
+
+init: 
+	mkdir -p $O $B
+
+clean:
+	rm -rf $O $B
 
 
+$B/1-4: $O/1-4.o $O/common.o
+	gcc -std=gnu11 -g -o $B/1-4 $O/1-4.o $O/common.o
 
-all: init $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/btest $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 $B/hashtable_example $O/common.o $O/sorted_tree.o $B/sorted_tree_example $B/sorted_tree_generic_example $O/ini.o $B/ini_example
+$O/1-4.o: src/1-4.c src/common.h
+	gcc -std=gnu11 -g -c src/1-4.c -o $O/1-4.o
 
 $B/1-16: $O/1-16.o $O/common.o
 	gcc -std=gnu11 -g -o $B/1-16 $O/1-16.o $O/common.o
@@ -58,6 +72,12 @@ $B/1-24: $O/1-24.o $O/common.o
 
 $O/1-24.o: src/1-24.c src/common.h
 	gcc -std=gnu11 -g -c src/1-24.c -o $O/1-24.o
+
+$B/1-24-stack: $O/1-24-stack.o $O/common.o
+	gcc -std=gnu11 -g -o $B/1-24-stack $O/1-24-stack.o $O/common.o
+
+$O/1-24-stack.o: src/1-24-stack.c src/common.h
+	gcc -std=gnu11 -g -c src/1-24-stack.c -o $O/1-24-stack.o
 
 
 $B/2-1: $O/2-1.o $O/common.o
@@ -136,12 +156,6 @@ $B/5-3: $O/5-3.o $O/common.o
 $O/5-3.o: src/5-3.c src/common.h
 	gcc -std=gnu11 -g -c src/5-3.c -o $O/5-3.o
 
-$B/btest: $O/btest.o $O/common.o
-	gcc -std=gnu11 -g -o $B/btest $O/btest.o $O/common.o -Wall -lrt
-
-$O/btest.o: src/btest.c src/common.h
-	gcc -std=gnu11 -g -c src/btest.c -o $O/btest.o
-
 $B/5-4: $O/5-4.o $O/common.o
 	gcc -std=gnu11 -g -o $B/5-4 $O/5-4.o $O/common.o
 
@@ -184,23 +198,23 @@ $O/6-1.o: src/6-1.c src/common.h
 	gcc -std=gnu11 -g -c src/6-1.c -o $O/6-1.o
 
 
-$B/6-3: $O/6-3.o $O/sorted_tree.o $O/common.o
-	gcc -std=gnu11 -g -o $B/6-3 $O/6-3.o $O/sorted_tree.o $O/common.o
+$B/6-3: $O/6-3.o $O/common.o
+	gcc $I -std=gnu11 -g -o $B/6-3 $O/6-3.o $O/common.o $L $D
 
-$O/6-3.o: src/6-3.c src/sorted_tree.h src/common.h
-	gcc -std=gnu11 -g -c src/6-3.c -o $O/6-3.o
+$O/6-3.o: src/6-3.c src/common.h
+	gcc $I -std=gnu11 -g -c src/6-3.c -o $O/6-3.o
 
-$B/6-3-w-hashtable: $O/6-3-w-hashtable.o $O/hashtable.o $O/common.o
-	gcc -std=gnu11 -g -o $B/6-3-w-hashtable $O/6-3-w-hashtable.o $O/hashtable.o $O/common.o
+$B/6-3-w-hashtable: $O/6-3-w-hashtable.o $O/common.o 
+	gcc $I -std=gnu11 -g -o $B/6-3-w-hashtable $O/6-3-w-hashtable.o $O/common.o $L $D
 
-$O/6-3-w-hashtable.o: src/6-3-w-hashtable.c src/hashtable.h src/common.h
-	gcc -std=gnu11 -g -c src/6-3-w-hashtable.c -o $O/6-3-w-hashtable.o
+$O/6-3-w-hashtable.o: src/6-3-w-hashtable.c src/common.h
+	gcc $I -std=gnu11 -g -c src/6-3-w-hashtable.c -o $O/6-3-w-hashtable.o
 
 $B/6-5: $O/6-5.o $O/common.o
-	gcc -std=gnu11 -g -o $B/6-5 $O/6-5.o $O/common.o
+	gcc $I -std=gnu11 -g -o $B/6-5 $O/6-5.o $O/common.o $L $D
 
 $O/6-5.o: src/6-5.c src/common.h
-	gcc -std=gnu11 -g -c src/6-5.c -o $O/6-5.o
+	gcc $I -std=gnu11 -g -c src/6-5.c -o $O/6-5.o
 
 
 $B/7-2: $O/7-2.o $O/common.o
@@ -258,48 +272,8 @@ $B/8-7: $O/8-7.o $O/common.o
 $O/8-7.o: src/8-7.c src/common.h
 	gcc -std=gnu11 -g -c src/8-7.c -o $O/8-7.o
 
-
-$B/hashtable_example: $O/hashtable_example.o $O/hashtable.o
-	gcc -std=gnu11 -g -o $B/hashtable_example $O/hashtable_example.o $O/hashtable.o
-
-$O/hashtable_example.o: src/hashtable_example.c src/hashtable.h
-	gcc -std=gnu11 -g -c src/hashtable_example.c -o $O/hashtable_example.o
-
-$O/hashtable.o: src/hashtable.h src/hashtable.c
-	gcc -std=gnu11 -g -c src/hashtable.c -o $O/hashtable.o
-
 $O/common.o: src/common.h src/common.c
 	gcc -std=gnu11 -g -c src/common.c -o $O/common.o
-
-$O/sorted_tree.o: src/sorted_tree.h src/sorted_tree.c
-	gcc -std=gnu11 -g -c src/sorted_tree.c -o $O/sorted_tree.o
-
-$B/sorted_tree_example: $O/sorted_tree_example.o $O/sorted_tree.o
-	gcc -std=gnu11 -g -o $B/sorted_tree_example $O/sorted_tree_example.o $O/sorted_tree.o
-
-$O/sorted_tree_example.o: src/sorted_tree_example.c src/sorted_tree.h
-	gcc -std=gnu11 -g -c src/sorted_tree_example.c -o $O/sorted_tree_example.o
-
-$B/sorted_tree_generic_example: $O/sorted_tree_generic_example.o $O/sorted_tree.o
-	gcc -std=gnu11 -g -o $B/sorted_tree_generic_example $O/sorted_tree_generic_example.o $O/sorted_tree.o
-
-$O/sorted_tree_generic_example.o: src/sorted_tree_generic_example.c src/sorted_tree.h
-	gcc -std=gnu11 -g -c src/sorted_tree_generic_example.c -o $O/sorted_tree_generic_example.o
-
-$O/ini.o: src/ini.h src/ini.c
-	gcc -std=gnu11 -g -c src/ini.c -o $O/ini.o $O/hashtable.o
-
-$B/ini_example: $O/ini_example.o $O/ini.o
-	gcc -std=gnu11 -g -o $B/ini_example $O/ini_example.o $O/ini.o $O/hashtable.o
-
-$O/ini_example.o: src/ini_example.c src/ini.h
-	gcc -std=gnu11 -g -c src/ini_example.c -o $O/ini_example.o
-
-clean:
-	rm -rf $O $B
-
-init: 
-	mkdir -p $O $B
 
 
 ##

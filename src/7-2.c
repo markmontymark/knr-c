@@ -15,7 +15,7 @@ sensible means - indented and max line length (72 chars) \n\
 according to local (locale?) custom";
 
 const int MAX_LINE_LENGTH = 72;
-const char * PRINTABLE = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 !\"#%&'()*+,-./:;<=>?[\\]^_{|}~\t\f\v\r\n";
+const int PRINTABLE = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 !\"#%&'()*+,-./:;<=>?[\\]^_{|}~\t\f\v\r\n";
 
 void impl( char * );
 void encode_weirdness_to_hex_str(char * ,int);
