@@ -4,7 +4,7 @@ O = obj
 L = -L./lib
 #D = -lmrk
 
-all: init $B/1-4 $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/1-24-stack $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 $O/common.o
+all: init $O/common.o $O/char_stack.o $B/1-4 $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/1-24-stack $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 
 
 init: 
 	mkdir -p $O $B
@@ -73,8 +73,8 @@ $B/1-24: $O/1-24.o $O/common.o
 $O/1-24.o: src/1-24.c src/common.h
 	gcc -std=gnu11 -g -c src/1-24.c -o $O/1-24.o
 
-$B/1-24-stack: $O/1-24-stack.o $O/common.o
-	gcc -std=gnu11 -g -o $B/1-24-stack $O/1-24-stack.o $O/common.o
+$B/1-24-stack: $O/1-24-stack.o $O/common.o $O/char_stack.o
+	gcc -std=gnu11 -g -o $B/1-24-stack $O/1-24-stack.o $O/common.o $O/char_stack.o
 
 $O/1-24-stack.o: src/1-24-stack.c src/common.h
 	gcc -std=gnu11 -g -c src/1-24-stack.c -o $O/1-24-stack.o
@@ -274,6 +274,9 @@ $O/8-7.o: src/8-7.c src/common.h
 
 $O/common.o: src/common.h src/common.c
 	gcc -std=gnu11 -g -c src/common.c -o $O/common.o
+
+$O/char_stack.o: src/char_stack.h
+	gcc -std=gnu11 -g -c src/char_stack.c -o $O/char_stack.o
 
 
 ##

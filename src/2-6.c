@@ -11,6 +11,16 @@ const int BIT_B = 1 << 1;
 const int BIT_C = 1 << 2;
 const int BIT_D = 1 << 3;
 
+struct flags
+{
+	uint64_t flags;
+};
+
+typedef struct flags flags_t;
+#define flags_s sizeof(flags_t)
+
+
+
 void impl( );
 int setbits(int x, int n, ...);
 
@@ -75,4 +85,15 @@ int setbits(int x, int n, ...)
 	}
 	va_end(ap);
 	return x;
+}
+
+int flags(flags_t &flags,uint64_t val)
+{
+	setbits(flags,1,val);
+}
+
+int flags_has(flags_t &flags,uint64_t val)
+{
+	setbits(flags,1,val);
+	return flags.flag | val;
 }

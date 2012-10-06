@@ -1,11 +1,5 @@
 
-// This file auto-generated on Tue Aug 21 13:50:45 2012
-
-#include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
 #include "common.h"
 
 const char * USAGE = "Write htoi which converts a char * of hex digits into an int number";
@@ -26,10 +20,19 @@ int main( int argc, char ** argv )
 
 void impl( )
 {
-	printf("htoi %s = %d\n", "0X2A",htoi("0X2A"));
-	printf("htoi %s = %d\n", "0x2A",htoi("0x2A"));
-	printf("htoi %s = %d\n", "0x2a",htoi("0x2a"));
-	printf("htoi %s = %d\n", "0x2",htoi("0x2"));
+	char * hs[] = {
+		"0X2A",
+		"0x2A",
+		"0x2a",
+		"0x2",
+		"0x1234567",
+		"0x2f34b"
+	};
+	
+	int i = 6;
+	while( --i > -1 )
+		printf("htoi %s = %d\n", hs[i],htoi(hs[i]));
+
 }
 
 int htoi(char * str)
@@ -41,11 +44,12 @@ int htoi(char * str)
 		*++str;
 	}
 	int len = strlen(str);
+	char * last_char = str + len - 1;
 	
 	char c;
-	for(int i=len-1, j = 0; i > -1; i--, j++)
+	for(int j = 0; j < len; j++)
 	{
-		c = str[i];
+		c = *last_char--;
 		switch( c )
 		{
 			case 'A': case 'B': case 'C':

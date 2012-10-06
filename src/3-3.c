@@ -8,10 +8,11 @@
 #include <errno.h>
 #include "common.h"
 
-const char * USAGE = "Write an expand(str1,str2) to expand shorthand notations of a-z, 0-9";
+const char * USAGE = "Write an str2 = expand(str1) to expand shorthand notations of a-z, 0-9";
 
 void impl( );
-void expand(char * from,char *to);
+char * expand(char * from);
+int test_expand(char * from,char * expected);
 
 int main( int argc, char ** argv )
 {
@@ -22,51 +23,37 @@ int main( int argc, char ** argv )
 	return 0;
 }
 
+
 void impl( )
 {
-	char * from = "This is a-z range";
-	char * to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
-	from = "This is 0-9 range";
-	to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
-	from = "This is a-z0-9 range";
-	to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
-	from = "This is 0-9a-z range";
-	to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
-	from = "0-9a-z";
-	to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
-	from = "0-z";
-	to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
-	from = "A-z";
-	to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
-	from = "a-Z";
-	to = malloc(sizeof from);
-	expand(from,to);
-	printf("from: %s\nto  : %s\n",from,to);
-
+	test_expand("This is a-z range","This is abcdefghijklmnopqrstuvwxyz range");
+	test_expand("This is 0-9 range","This is 0123456789 range");
+	test_expand("This is a-z0-9 range","This is abcdefghijklmnopqrstuvwxyz0123456789 range");
+	test_expand("This is 0-9a-z range","This is 0123456789abcdefghijklmnopqrstuvwxyz range");
+	test_expand("0-9a-z","0123456789abcdefghijklmnopqrstuvwxyz");
+	test_expand("0-3-5","0123-5");
+	test_expand("0123-5","012345");
+	test_expand("0-z","0-z");
+	test_expand("A-z","A-z");
+	test_expand("a-Z","a-Z");
 }
 
-void expand(char * from,char *to)
+int test_expand(char * from,char * expected)
+{
+	if(from == NULL)
+		return 0;
+	if(expected == NULL)
+		return -1;
+	char * to = expand(from);
+	if(to == NULL)
+		return 1;
+	int isExpected = strcmp(to,expected) == 0;
+	printf("%s: test: %s, result: %s, expected: %s\n",isExpected?"passed":"failed",from,to,expected);
+	free(to);
+	return isExpected;
+}
+
+char * expand(char * from)
 {
 	char startChar;
 	char endChar;
@@ -76,21 +63,26 @@ void expand(char * from,char *to)
 	char prevprevChar = -1;
 
 	int curIsAlpha;
-	
-	while( *from )
+
+	size_t len = strlen(from)+1;
+	char * to = malloc(len);
+	char * toStart = to;
+	int topos = 0;
+	while( (curChar = *from) )
 	{
-		curChar = *from;
 		if(prevprevChar == -1)
 		{
 			prevprevChar = curChar;
 			*to = curChar;
-			*to++;
+			to++;
+			topos++;
 		}
 		else if(prevChar == -1)
 		{
 			prevChar = curChar;
 			*to = curChar;
-			*to++;
+			to++;
+			topos++;
 		}
 		else
 		{
@@ -105,20 +97,28 @@ void expand(char * from,char *to)
 				|| ( isdigit(prevprevChar) && isdigit(curChar)))
 				&& (int)prevprevChar < (int)curChar
 			){
-				//printf("ready to expand %c - %c\n",prevprevChar,curChar);
-				*to--;
-				for(int i = prevprevChar+1; i <= (int)curChar; i++)
+				to--;
+				topos--;
+				int growBy = (int)curChar - (int)prevprevChar;
+				char * tmp = realloc(toStart,len + growBy);
+				if(tmp == NULL)
 				{
-					*to = (char)i;
-					*to++;
+					free(toStart);
+					return NULL;
 				}
+				to = toStart = tmp;
+				to += topos;
+				len += growBy;
+				for(int i = prevprevChar+1; i <= (int)curChar; i++,to++,topos++)
+					*to = (char)i;
 			}
 
 			// otherwise, append to *to and rest chars
 			else
 			{
 				*to = curChar;
-				*to++;
+				to++;
+				topos++;
 				prevprevChar = prevChar;
 				prevChar = curChar;
 			}
@@ -126,4 +126,5 @@ void expand(char * from,char *to)
 		*from++;	
 	}
 	*to = '\0';
+	return toStart;
 }

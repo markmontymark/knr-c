@@ -1,10 +1,4 @@
 
-// This file auto-generated on Tue Aug 21 13:50:45 2012
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
 #include "common.h"
 
 const char * USAGE = "Write a function, squeeze(char *  srcString,char * subString) that deletes all occurences of each char in subString in srcString";
@@ -43,14 +37,16 @@ void squeeze(char * str,char * charsToRemove)
 	char ci;
 	int found;
 	int i,j;
+	char * tmpCharsToRemove;
 
 	for(i=j=0; str[i]; i++)
 	{
 		ci = str[i];
 		found = 0;
-		for(int k = 0; charsToRemove[k]; k++)
+		tmpCharsToRemove = charsToRemove;
+		while(*tmpCharsToRemove)
 		{
-			if( ci == charsToRemove[k])
+			if( ci == *tmpCharsToRemove++)
 			{
 				found = 1;
 				break;
