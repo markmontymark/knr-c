@@ -130,7 +130,7 @@ $O/4-1.o: src/4-1.c src/common.h
 
 
 $B/4-2: $O/4-2.o $O/common.o
-	gcc -std=gnu11 -g -o $B/4-2 $O/4-2.o $O/common.o
+	gcc -std=gnu11 -g -o $B/4-2 $O/4-2.o $O/common.o -lm
 
 $O/4-2.o: src/4-2.c src/common.h
 	gcc -std=gnu11 -g -c src/4-2.c -o $O/4-2.o

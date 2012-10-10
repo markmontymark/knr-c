@@ -2,6 +2,7 @@
 // This file auto-generated on Tue Aug 21 13:50:45 2012
 
 #include <stdarg.h>
+#include "sys/types.h"
 #include "common.h"
 
 const char * USAGE = "Write setbits(int x,va_args....) that sets each bit flag pass in a varargs style";
@@ -11,6 +12,7 @@ const int BIT_B = 1 << 1;
 const int BIT_C = 1 << 2;
 const int BIT_D = 1 << 3;
 
+/*
 struct flags
 {
 	uint64_t flags;
@@ -18,6 +20,7 @@ struct flags
 
 typedef struct flags flags_t;
 #define flags_s sizeof(flags_t)
+*/
 
 
 
@@ -87,7 +90,8 @@ int setbits(int x, int n, ...)
 	return x;
 }
 
-int flags(flags_t &flags,uint64_t val)
+/*
+int flags(flags_t * flags,uint64_t val)
 {
 	setbits(flags,1,val);
 }
@@ -97,3 +101,4 @@ int flags_has(flags_t &flags,uint64_t val)
 	setbits(flags,1,val);
 	return flags.flag | val;
 }
+*/

@@ -1,17 +1,33 @@
 
-// This file auto-generated on Tue Aug 21 13:50:45 2012
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
+#include "math.h"
 #include "common.h"
 
 const char * USAGE = "Write an atof function that handles scientific notation";
 
+struct significand_num
+{
+	int length;
+	int digits[256];
+};
+
+typedef struct scinot scinot_t;
+struct scinot
+{
+	int significand_sign; // -1 or 1
+	int exponent_sign; // -1 or 1
+	long significand; // nums to left of decimal
+	long fractional; // nums to left of decimal
+	double exponent; // nums to right of decimal
+};
+
+enum parse_scinot_states
+{
+	SIGNIFICAND,
+	FRACTION,
+	EXPONENT
+};
+
 void impl( );
-int strrindex(const char * s,char t);
-char * substring(const char * src,int from, int to);
 double scientific_notation_to_double(char * str);
 
 int main( int argc, char ** argv )
@@ -57,7 +73,7 @@ void impl( )
 				snprintf(str,
 					80,
 					"%s%s%s",nums[i],es[j],exps[k] );
-				printf("local_atof(%s) = %f\n", str, scientific_notation_to_double(str)); 
+				printf("local_atof(%s) = %f\n\n\n\n", str, scientific_notation_to_double(str)); 
 			}
 		}
 	}
@@ -66,64 +82,135 @@ void impl( )
 
 double scientific_notation_to_double(char * str)
 {
-	int has_sign = strrindex(str,'+');
-	if( has_sign == -1) // this is an int
-		has_sign = strrindex(str,'-');
-	
-	int has_exponent = strrindex(str,'E');
-	if( has_exponent  == -1) // this is an int
-		has_exponent = strrindex(str,'e');
-
-	char * signPart = "+";
-	if( has_sign == -1 && has_exponent != -1)
-		has_sign = has_exponent;
-	else
-		signPart = substring(str,has_sign,has_sign+1);
-
-	char * numPart = substring(str,0,has_sign);
-	char * expPart = substring(str,has_exponent+1,strlen(str));
-	double retval;
-	retval = ( strrindex(numPart,'.') != -1) ?  atof(numPart) : (double)atoi(numPart);
-
-	double exp = 1;
-	int expNum = atoi(expPart);
-	while(expNum-- > 0)
-		exp *= 10;
-	if(signPart[0] == '-')
-		exp =  1/exp;
-	//printf("%s: has_sign %d, has_exp %d, parts %s and %s and %s, strlen(str) = %d, sizeof str = %d\n\n\n", 
-		//str, has_sign, has_exponent, numPart, signPart, expPart, strlen(str), sizeof(str));
-	return retval * exp;//1.0;
-}
-
-
-int strrindex(const char * s,char t)
-{
-	int len = strlen(s);
-	while(--len > -1)
-		if(s[len] == t)
-			return len;
-	return len;
-}
-
-char * substring(const char * src,int from, int to)
-{
-	int len = strlen(src);
-	//	printf("substring(%s,%d,%d), len %d\n",src,from,to,len);
-	if(to > len)
-		return NULL;
-	if(from >= to)
-		return NULL;
-
-	char * retvalStr = malloc( (to-from) + 1);
-	char * retval = retvalStr;
-	for(int i = from; i < to; i++)
+	char * str_tmp = str;
+	int state = SIGNIFICAND;
+	char c;
+	int cnum = 0;
+	scinot_t retval = {1,1,0,0,0};
+	struct significand_num sg;
+	sg.length = 0;
+	struct significand_num frac;
+	frac.length = 0;
+	struct significand_num exp;
+	exp.length = 0;
+	printf("starrt %s\n",str);
+	while( (c = *str++))
 	{
-		*retvalStr = src[i];
-		retvalStr++;
-	}
-	*retvalStr = '\0';
-	return retval;
-}
+		cnum++;
+		switch(state)
+		{
+			case SIGNIFICAND:
+				if( c == '-')
+					if( sg.length == 0)
+						retval.significand_sign = -1;
+					else
+					{
+						retval.exponent_sign = -1;
+						state = EXPONENT;
+					}
 
+				else if( c == '+')
+					if( sg.length == 0)
+						retval.significand_sign = 1;
+					else
+					{
+						retval.exponent_sign = 1;
+						state = EXPONENT;
+					}
+
+				else if(c == 'E' || c == 'e')
+				{
+					state = EXPONENT;
+					break;
+				}
+
+				else if( c == '.' )
+				{
+					state = FRACTION;	
+				}
+				else if( isdigit(c) )
+					sg.digits[sg.length++] = (int)c-(int)'0';
+
+				else
+					printf("parse error at character %c, position %d, string %s\n",c,cnum,str_tmp);
+
+				break;
+
+			case FRACTION:
+				if( isdigit(c) )
+					frac.digits[ frac.length++ ] = (int)c-(int)'0';
+
+				else if( c == '-' )
+				{
+					state = EXPONENT;
+					retval.exponent_sign = -1;
+				}
+
+				else if( c == '+')
+				{
+					state = EXPONENT;
+					retval.exponent_sign = 1;
+				}
+
+				else if(c == 'E' || c == 'e')
+				{
+					state = EXPONENT;
+					break;
+				}
+				else
+					printf("parse error at character %c, position %d, string %s\n",c,cnum,str_tmp);
+				break;
+
+			case EXPONENT:
+				if( isdigit(c) )
+					exp.digits[ exp.length++ ] = (int)c-(int)'0';
+				else
+					printf("parse error at character %c, position %d, string %s\n",c,cnum,str_tmp);
+				break;
+		}
+	}
+
+	int power = 0;
+	long sum = 0;
+	while( --sg.length  > -1 )
+	{
+		sum += pow(10,power++) * sg.digits[ sg.length ];
+		printf("building sig.digits[%d] = %d, sum %ld\n",sg.length,sg.digits[sg.length],sum);
+	}
+	printf("sig final %ld\n",sum );
+	retval.significand = sum;
+
+	power = 0;
+	sum = 0;
+	long divisor = 1;
+	while( --frac.length  > -1 )
+	{
+		divisor *= 10;
+		sum += pow(10,power++) * frac.digits[ frac.length ];
+		printf("building frac.digits[%d] = %d, sum %ld\n",frac.length,frac.digits[frac.length],sum);
+	}
+	printf("frac final %ld\n",sum );
+	retval.fractional = sum;
+
+
+	power = 0;
+	sum = 0;
+	while( --exp.length  > -1 )
+	{
+		sum += pow(10,power++) * exp.digits[ exp.length ];
+		printf("building exp.digits[%d] = %d, sum %ld\n",exp.length,exp.digits[exp.length],sum);
+	}
+	if(retval.exponent_sign == -1)
+		if(sum == 0)
+			retval.exponent = 1;
+		else
+			retval.exponent = 1/sum;
+	else
+		retval.exponent = sum;
+	printf("exp final %.9f\n",retval.exponent);
+
+	printf("%s parts %c%ld.%ld%c%.9f\n", str_tmp,retval.significand_sign == 1 ? '+' : '-' ,retval.significand, retval.fractional, retval.exponent_sign==1?'+':'-', retval.exponent);
+
+	return retval.significand * retval.exponent;//1.0;
+}
 
