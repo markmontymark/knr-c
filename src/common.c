@@ -76,12 +76,6 @@ int open_data_file(const char * progname,FILE * fp)
 	return 0;
 }
 
-void close_data_file(FILE * fp)
-{
-	if( ! fp )
-		return;
-	fclose(fp);
-}
 
 int read_line(char ** dest, int realloc_size, FILE *fp) 
 {
@@ -145,30 +139,5 @@ int read_line(char ** dest, int realloc_size, FILE *fp)
 	p[len] = '\0';
 	*dest = p;
 	return len;
-}
-
-int benchmark( void * func, char * arg1, char * arg2)
-{
-	printf("in benchmark\n");
-/*
-	for(int i = 0; i < 100; i++)
-		(*func)(arg1,arg2);
-*/
-	printf("out benchmark\n");
-	return 0;
-}
-
-int benchmark_char_char(unsigned int times, char *(*func)(char *,char*), char * a, char * b)
-{
-	if(times == 0)
-		return 0;
-		
-	time_t t1,t2;
-	(void) time(&t1);
-	int retval = 0;
-	while( times-- )
-		(*func)(a,b);
-	(void) time(&t2);
-	return (int) t2-t1;
 }
 

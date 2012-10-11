@@ -14,9 +14,6 @@ void usage(const char * usage_msg, const char * prog_name);
 void get_progname(char * path);
 void get_rcfile(char * dest,const char * progname);
 int open_data_file(const char * progname,FILE * fp);
-void close_data_file(FILE * fp);
 int read_line(char ** dest, int realloc_size, FILE *fp) ;
-int benchmark( void * func, char * arg1, char * arg2);
-int benchmark_char_char(unsigned int times,char *(*fptr)(char *,char*), char *, char *);
 
 #endif

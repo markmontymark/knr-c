@@ -1,10 +1,10 @@
 B = bin
 O = obj
 #I = -Ilibmrk_include
-L = -L./lib
+L = -L./lib -lkitchensink -lmysqlclient -lrt
 #D = -lmrk
 
-all: init $O/common.o $O/char_stack.o $B/1-4 $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/1-24-stack $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 
+all: init $O/common.o $O/char_stack.o $B/1-1 $B/1-3 $B/1-4 $B/1-16 $B/1-17 $B/1-18 $B/1-20 $B/1-21 $B/1-22 $B/1-23 $B/1-24 $B/1-24-stack $B/2-1 $B/2-3 $B/2-4 $B/2-6 $B/3-2 $B/3-3 $B/4-1 $B/4-2 $B/4-3 $B/4-12 $B/5-3 $B/5-4 $B/5-7 $B/5-9 $B/5-13 $B/5-17 $B/6-1 $B/6-3 $B/6-3-w-hashtable $B/6-5 $B/7-2 $B/7-3 $B/8-1 $B/8-3 $B/8-4 $B/8-5 $B/8-6 $B/8-7 
 
 init: 
 	mkdir -p $O $B
@@ -12,6 +12,17 @@ init:
 clean:
 	rm -rf $O $B
 
+$B/1-1: $O/1-1.o $O/common.o
+	gcc -std=gnu11 -g -o $B/1-1 $O/1-1.o $O/common.o
+
+$O/1-1.o: src/1-1.c src/common.h
+	gcc -std=gnu11 -g -c src/1-1.c -o $O/1-1.o
+
+$B/1-3: $O/1-3.o $O/common.o
+	gcc -std=gnu11 -g -o $B/1-3 $O/1-3.o $O/common.o
+
+$O/1-3.o: src/1-3.c src/common.h
+	gcc -std=gnu11 -g -c src/1-3.c -o $O/1-3.o
 
 $B/1-4: $O/1-4.o $O/common.o
 	gcc -std=gnu11 -g -o $B/1-4 $O/1-4.o $O/common.o
