@@ -12,25 +12,6 @@ const char * USAGE = "Write a program that checks for balance with parentheses, 
 void impl( char * progname, int argc, char ** argv );
 void checkForBalancedParensBracketsBraces( char * filename );
 
-struct char_stack
-{
-	char c;
-	struct char_stack * next;
-};
-
-void char_stack_push( struct char_stack *cs,char c)
-{
-}
-
-char char_stack_pop( struct char_stack *cs)
-{
-}
-
-int char_stack_is_empty( struct char_stack *cs)
-{
-	return cs->next == NULL;
-}
-
 int main( int argc, char ** argv )
 {
 	char * progname = argv[0];
