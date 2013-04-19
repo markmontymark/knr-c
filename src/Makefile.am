@@ -1,4 +1,4 @@
-bin_PROGRAMS = 1-16 1-17 1-18 1-1 1-20 1-21 1-22 1-23 1-23-fread 1-24 1-24-stack 1-3 1-4 2-1 2-3 2-4 2-6 3-2 3-3 4-10 4-12 4-1 4-2 4-3 4-4 4-5 4-6 4-7 4-8 4-9 5-13 5-17 5-3 5-4 5-7 5-9 6-1 6-3 6-3-w-hashtable 6-5 7-1 7-2 7-3 8-1 8-3 8-4 8-5 8-6 8-7 
+bin_PROGRAMS = 1-16 1-17 1-18 1-1 1-20 1-21 1-22 1-23 1-23-fread 1-24 1-24-stack 1-3 1-4 2-1 2-3 2-4 2-6 3-2 3-3 4-10 4-12 4-1 4-2 4-3 4-4 4-5 4-6 4-7 4-8 4-9 5-13 5-17 5-3 5-4 5-7 5-9 6-1 6-3 6-3-w-hashtable 6-5 7-1 7-3 8-1 8-3 8-4 8-5 8-6 8-7 
 AM_CFLAGS = -std=c99
 1_16_SOURCES = 1-16.c common.c common.h
 1_17_SOURCES = 1-17.c common.c common.h
@@ -43,7 +43,6 @@ AM_CFLAGS = -std=c99
 6_3_w_hashtable_SOURCES = 6-3-w-hashtable.c common.c common.h sorted_tree.c sorted_tree.h hashtable.c hashtable.h
 6_5_SOURCES = 6-5.c common.c common.h
 7_1_SOURCES = 7-1.c common.c common.h
-7_2_SOURCES = 7-2.c common.c common.h
 7_3_SOURCES = 7-3.c common.c common.h
 8_1_SOURCES = 8-1.c common.c common.h
 8_3_SOURCES = 8-3.c common.c common.h

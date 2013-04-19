@@ -43,7 +43,7 @@ bin_PROGRAMS = 1-16$(EXEEXT) 1-17$(EXEEXT) 1-18$(EXEEXT) 1-1$(EXEEXT) \
 	5-17$(EXEEXT) 5-3$(EXEEXT) 5-4$(EXEEXT) 5-7$(EXEEXT) \
 	5-9$(EXEEXT) 6-1$(EXEEXT) 6-3$(EXEEXT) \
 	6-3-w-hashtable$(EXEEXT) 6-5$(EXEEXT) 7-1$(EXEEXT) \
-	7-2$(EXEEXT) 7-3$(EXEEXT) 8-1$(EXEEXT) 8-3$(EXEEXT) \
+	7-3$(EXEEXT) 8-1$(EXEEXT) 8-3$(EXEEXT) \
 	8-4$(EXEEXT) 8-5$(EXEEXT) 8-6$(EXEEXT) 8-7$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
@@ -182,9 +182,6 @@ am_6_5_OBJECTS = 6-5.$(OBJEXT) common.$(OBJEXT)
 am_7_1_OBJECTS = 7-1.$(OBJEXT) common.$(OBJEXT)
 7_1_OBJECTS = $(am_7_1_OBJECTS)
 7_1_LDADD = $(LDADD)
-am_7_2_OBJECTS = 7-2.$(OBJEXT) common.$(OBJEXT)
-7_2_OBJECTS = $(am_7_2_OBJECTS)
-7_2_LDADD = $(LDADD)
 am_7_3_OBJECTS = 7-3.$(OBJEXT) common.$(OBJEXT)
 7_3_OBJECTS = $(am_7_3_OBJECTS)
 7_3_LDADD = $(LDADD)
@@ -372,7 +369,6 @@ AM_CFLAGS = -std=c99
 6_3_w_hashtable_SOURCES = 6-3-w-hashtable.c common.c common.h sorted_tree.c sorted_tree.h hashtable.c hashtable.h
 6_5_SOURCES = 6-5.c common.c common.h
 7_1_SOURCES = 7-1.c common.c common.h
-7_2_SOURCES = 7-2.c common.c common.h
 7_3_SOURCES = 7-3.c common.c common.h
 8_1_SOURCES = 8-1.c common.c common.h
 8_3_SOURCES = 8-3.c common.c common.h
@@ -574,9 +570,6 @@ clean-binPROGRAMS:
 7-1$(EXEEXT): $(7_1_OBJECTS) $(7_1_DEPENDENCIES) $(EXTRA_7_1_DEPENDENCIES) 
 	@rm -f 7-1$(EXEEXT)
 	$(LINK) $(7_1_OBJECTS) $(7_1_LDADD) $(LIBS)
-7-2$(EXEEXT): $(7_2_OBJECTS) $(7_2_DEPENDENCIES) $(EXTRA_7_2_DEPENDENCIES) 
-	@rm -f 7-2$(EXEEXT)
-	$(LINK) $(7_2_OBJECTS) $(7_2_LDADD) $(LIBS)
 7-3$(EXEEXT): $(7_3_OBJECTS) $(7_3_DEPENDENCIES) $(EXTRA_7_3_DEPENDENCIES) 
 	@rm -f 7-3$(EXEEXT)
 	$(LINK) $(7_3_OBJECTS) $(7_3_LDADD) $(LIBS)
@@ -646,7 +639,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/6-3.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/6-5.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/7-1.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/7-2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/7-3.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-3.Po@am__quote@
