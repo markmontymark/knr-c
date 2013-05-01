@@ -1,0 +1,11 @@
+Write an str2 = expand(str1) to expand shorthand notations of a-z, 0-9
+passed: test: This is a-z range, result: This is abcdefghijklmnopqrstuvwxyz range, expected: This is abcdefghijklmnopqrstuvwxyz range
+passed: test: This is 0-9 range, result: This is 0123456789 range, expected: This is 0123456789 range
+passed: test: This is a-z0-9 range, result: This is abcdefghijklmnopqrstuvwxyz0123456789 range, expected: This is abcdefghijklmnopqrstuvwxyz0123456789 range
+passed: test: This is 0-9a-z range, result: This is 0123456789abcdefghijklmnopqrstuvwxyz range, expected: This is 0123456789abcdefghijklmnopqrstuvwxyz range
+passed: test: 0-9a-z, result: 0123456789abcdefghijklmnopqrstuvwxyz, expected: 0123456789abcdefghijklmnopqrstuvwxyz
+passed: test: 0-3-5, result: 0123-5, expected: 0123-5
+passed: test: 0123-5, result: 012345, expected: 012345
+passed: test: 0-z, result: 0-z, expected: 0-z
+passed: test: A-z, result: A-z, expected: A-z
+passed: test: a-Z, result: a-Z, expected: a-Z

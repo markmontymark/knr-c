@@ -29,9 +29,7 @@ int setbits(int x, int n, ...);
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
+	printf("%s\n",USAGE);
 	impl();
 	return 0;
 }

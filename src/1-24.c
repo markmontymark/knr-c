@@ -9,19 +9,17 @@
 
 const char * USAGE = "Write a program that checks for balance with parentheses, brackets, braces";
 
-void impl( char * progname, int argc, char ** argv );
+void impl( int argc, char ** argv );
 void checkForBalancedParensBracketsBraces( char * filename );
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
-	impl(progname,argc,argv);
+	printf("%s\n",USAGE);
+	impl(argc,argv);
 	return 0;
 }
 
-void impl( char * progname, int argc, char ** argv )
+void impl( int argc, char ** argv )
 {
 	for( int i = 1; i < 	argc ; i++ )
 		checkForBalancedParensBracketsBraces( argv[i] );

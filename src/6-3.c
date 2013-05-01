@@ -23,9 +23,8 @@ void print_ordered_tree_str( ordered_tree_str_t * node );
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
+	printf("%s\n",USAGE);
+
 	if(argc > 1)
 		for( int i = 1 ; i < argc; i++)
 			impl(argv[i]);

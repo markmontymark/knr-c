@@ -86,9 +86,7 @@ int read_line(char ** dest, int realloc_size, FILE *fp)
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
+	printf("%s\n",USAGE);
 	if(argc > 1)
 		for( int i = 1 ; i < argc; i++)
 			impl(argv[i]);

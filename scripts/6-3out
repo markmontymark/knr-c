@@ -1,0 +1,9 @@
+Write a cross-referencer that prints a list of all words in  a document and, for each word, a list of the line numbers of occurences of each word.  Have an ignore list of words like 'a', 'the, etc.
+adsff, count 1
+asdff, count 1
+asdfzxcvdsafd, count 1
+gfdsfdasdfa, count 1
+qewaaaar, count 2
+qewr, count 5
+qewvvvr, count 1
+rewq, count 1

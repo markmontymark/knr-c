@@ -9,9 +9,7 @@ void impl( );
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
+	printf("%s\n",USAGE);
 	impl();
 	return 0;
 }
@@ -32,17 +30,22 @@ void impl( )
 	long long mx = 10;
 	long long mn = 0;
 
-	while( ++c > 0) mx = c;
+/*
+	while( ++c > 0) 
+	{
+		mx = c;
+		printf("char range is at %lli\n",mx);
+	}
 	c = '\0';
 	while( --c < 0) mn = c;
 	mn = ++c;
-	printf("char range is %lli to %lli\n",mn,mx);
-
+	
 	while( ++w > 0) mx = w;
 	w = '\0';
 	while( --w < 0) mn = w;
 	mn = ++w;
 	printf("wchar range is %lli to %lli\n",mn,mx);
+*/
 
 	while( ++cu > 0) mx = cu;
 	cu = '\0';
@@ -50,18 +53,22 @@ void impl( )
 	mn = ++cu;
 	printf("unsigned char range is %lli to %lli\n",mn,mx);
 
+/*
 	while( ++s > 0) mx = s;
 	s = 0;
 	while( --s < 0) mn = s;
 	mn = ++s;
 	printf("short range is %lli to %lli\n",mn,mx);
 
+*/
+
 	while( ++su > 0) mx = su;
 	su = 0;
 	while( --su < 0) mn = su;
 	mn = ++su;
 	printf("unsigned short range is %lli to %lli\n",mn,mx);
-	
+
+/*	
 	while( ++i > 0) mx = i;
 	i = 0;
 	while( --i < 0) mn = i;
@@ -85,6 +92,7 @@ void impl( )
 	while( --lu < 0) mn = lu;
 	mn = ++lu;
 	printf("unsigned long range is %lli to %lli\n",mn,mx);
+*/
 	
 	
 }

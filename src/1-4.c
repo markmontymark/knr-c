@@ -8,9 +8,7 @@ float celsius2farenheit( float c);
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
+	printf("%s\n",USAGE);
 	impl(argc,argv);
 	return 0;
 }

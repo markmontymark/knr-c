@@ -1,0 +1,8 @@
+
+
+line before a c++ comment
+
+/* this is in a c++ comment */
+
+
+line after a c++ comment

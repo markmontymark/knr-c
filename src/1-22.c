@@ -1,23 +1,14 @@
-
-#include "common.h"
+#include <stdio.h>
+#include <string.h>
 
 const char * USAGE = "fold long input lines into two or more shorter lines with max length of 80 chars";
 const int MAX_LINELENGTH = 80;
 const int MAX_CHARS = 1024;
 
-void impl( );
-
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
-	impl(progname);
-	return 0;
-}
+	printf("%s\n",USAGE);
 
-void impl( )
-{	
 	char * charsRead;
 	char buf[MAX_CHARS];
 	int nCharsRead;

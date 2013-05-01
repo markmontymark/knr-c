@@ -1,23 +1,13 @@
-
-#include "common.h"
+#include <stdio.h>
 
 const char * USAGE = "Write a strrindex(s,t) function that return the last occurrence of t in s or -1 if not found (this can be compared to rindex?)";
 
-void impl( );
 int strrindex(const char * s,char t);
 int test_strrindex(const char * s,char t);
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
-	impl();
-	return 0;
-}
-
-void impl( )
-{
+	printf("%s\n",USAGE);
 	char * str = "This is a string we will test the last index for.";
 	test_strrindex(str,'t');
 	test_strrindex(str,'z');
@@ -25,6 +15,7 @@ void impl( )
 
 	test_strrindex("r",'r');
 	test_strrindex("",'z');
+	return 0;
 }
 
 int test_strrindex(const char *s,char t)

@@ -27,20 +27,12 @@ enum parse_scinot_states
 	EXPONENT
 };
 
-void impl( );
 double scientific_notation_to_double(char * str);
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
-	impl();
-	return 0;
-}
+	printf("%s\n",USAGE);
 
-void impl( )
-{
 	char * nums[7];
 	nums[0] = "1";
 	nums[1] = "12";
@@ -77,7 +69,7 @@ void impl( )
 			}
 		}
 	}
-
+	return 0;
 }
 
 double scientific_notation_to_double(char * str)

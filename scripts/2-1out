@@ -1,0 +1,3 @@
+Write a program to print out ranges of char, short, int, long vars (both signed and unsigned)
+unsigned char range is 0 to 255
+unsigned short range is 0 to 65535

@@ -1,21 +1,10 @@
 
-#include "common.h"
-
 const char * USAGE = "Write escape(to,from) which converts newline to \n and tab to \t";
 
 void impl( );
 void escape(char * from,char * to);
 
 int main( int argc, char ** argv )
-{
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
-	impl();
-	return 0;
-}
-
-void impl( )
 {
 	char * from = "This is a sentence with a literal newline -\n- and a literal -\t-.";
 	char * to = malloc(strlen(from)+1);
@@ -27,6 +16,7 @@ void impl( )
 	char * to2 = malloc(strlen(from2) + 1);
 	escape(from2,to2);
 	printf("from: %s\nto  : %s\n",from2,to2);
+	return 0;
 }
 
 void escape(char * from,char * to)

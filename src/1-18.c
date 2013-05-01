@@ -3,20 +3,17 @@
 
 const char * USAGE = "Remove trailing whitespace (except newline) from input lines and delete blank lines";
 
-void impl( char * progname );
 int is_blank_line(char * line);
 char * remove_trailing_spaces(char * line);
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
-	impl(progname);
+	printf("%s\n",USAGE);
+	impl();
 	return 0;
 }
 
-void impl( char * progname )
+void impl( )
 {
 	int max = 25;
 	char *line[0];

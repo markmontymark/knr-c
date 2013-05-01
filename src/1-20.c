@@ -9,9 +9,7 @@ void impl( );
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
+	printf("%s\n",USAGE);
 	printf("Replaces tabs with %d spaces\n",strlen(SHIFTWIDTH));
 	impl();
 	return 0;

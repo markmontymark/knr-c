@@ -8,9 +8,8 @@ void impl( );
 
 int main( int argc, char ** argv )
 {
-	char * progname = argv[0];
-	get_progname(progname);
-	usage(USAGE,progname);
+	printf("%s\n",USAGE);
+
 	int max_length = 80;
 	if(argc > 1)
 		max_length = atoi(argv[1]);
