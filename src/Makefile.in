@@ -61,7 +61,7 @@ bin_PROGRAMS = 1-16$(EXEEXT) 1-17$(EXEEXT) 1-18$(EXEEXT) 1-1$(EXEEXT) \
 	5-9$(EXEEXT) 6-1$(EXEEXT) 6-3$(EXEEXT) \
 	6-3-w-hashtable$(EXEEXT) 6-5$(EXEEXT) 7-1$(EXEEXT) \
 	7-3$(EXEEXT) 8-1$(EXEEXT) 8-3$(EXEEXT) 8-4$(EXEEXT) \
-	8-5$(EXEEXT) 8-6$(EXEEXT) 8-7$(EXEEXT)
+	8-5$(EXEEXT) 8-6$(EXEEXT) 8-7$(EXEEXT) unicodes$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -220,6 +220,9 @@ am_8_6_OBJECTS = 8-6.$(OBJEXT) common.$(OBJEXT)
 am_8_7_OBJECTS = 8-7.$(OBJEXT) common.$(OBJEXT)
 8_7_OBJECTS = $(am_8_7_OBJECTS)
 8_7_LDADD = $(LDADD)
+am_unicodes_OBJECTS = unicodes.$(OBJEXT)
+unicodes_OBJECTS = $(am_unicodes_OBJECTS)
+unicodes_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
@@ -241,7 +244,7 @@ SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(6_1_SOURCES) $(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) \
 	$(6_5_SOURCES) $(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) \
 	$(8_3_SOURCES) $(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) \
-	$(8_7_SOURCES)
+	$(8_7_SOURCES) $(unicodes_SOURCES)
 DIST_SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(1_18_SOURCES) $(1_20_SOURCES) $(1_21_SOURCES) \
 	$(1_22_SOURCES) $(1_23_SOURCES) $(1_23_fread_SOURCES) \
@@ -255,7 +258,7 @@ DIST_SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(6_1_SOURCES) $(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) \
 	$(6_5_SOURCES) $(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) \
 	$(8_3_SOURCES) $(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) \
-	$(8_7_SOURCES)
+	$(8_7_SOURCES) $(unicodes_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -348,6 +351,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CFLAGS = -std=c99
+unicodes_SOURCES = unicodes.c
 1_16_SOURCES = 1-16.c common.c common.h
 1_17_SOURCES = 1-17.c common.c common.h
 1_18_SOURCES = 1-18.c common.c common.h
@@ -616,6 +620,9 @@ clean-binPROGRAMS:
 8-7$(EXEEXT): $(8_7_OBJECTS) $(8_7_DEPENDENCIES) $(EXTRA_8_7_DEPENDENCIES) 
 	@rm -f 8-7$(EXEEXT)
 	$(LINK) $(8_7_OBJECTS) $(8_7_LDADD) $(LIBS)
+unicodes$(EXEEXT): $(unicodes_OBJECTS) $(unicodes_DEPENDENCIES) $(EXTRA_unicodes_DEPENDENCIES) 
+	@rm -f unicodes$(EXEEXT)
+	$(LINK) $(unicodes_OBJECTS) $(unicodes_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -675,6 +682,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/common.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hashtable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sorted_tree.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unicodes.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
