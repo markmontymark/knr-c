@@ -129,14 +129,19 @@
       "name" : "src/1-17"
    },
    "8-6" : {
+      "regex_expected" : "/^\\s*Rewrite calloc\\(n, size\\) using malloc\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   9\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   8\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   7\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   6\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   5\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   4\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   3\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   2\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   1\\s+test name asdf\\s*$/",
       "bin" : "src/8-6",
-      "expected" : "Rewrite calloc(n, size) using malloc",
       "name" : "src/8-6"
    },
    "4-9" : {
       "bin" : "src/4-9",
       "expected" : "Write a calculator program, Our getch/ungetch don't handle pushing EOF back",
       "name" : "src/4-9"
+   },
+   "unicodes" : {
+      "bin" : "src/unicodes",
+      "expected" : "This is char: \u00ce\u00a9 \nThis is char: \u00e2\u0084\u00a6 \nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \n",
+      "name" : "src/unicodes"
    },
    "3-2" : {
       "bin" : "src/3-2",
