@@ -7,21 +7,21 @@
    "1-22" : {
       "bin" : "src/1-22",
       "expected" : "fold long input lines into two or more shorter lines with max length of 80 chars\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n1234567890abcdefghij1234567890abcdefghij\t\t\nshort\tline\n\nblank\tline\twas\tbefore\t\t\nbreak\tlines\tat\tsomewhere\tsomewhere\tsomewhere\tsomewhere\tsomewhere\taround\there\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij1234567890abcdefgh\nij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefgh\nij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdef\nghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij1234567890abcd\nefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcd\nefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890ab\ncdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij1234567890\nabcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890\nabcdefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij12345678\n90abcdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij123456\n7890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij123456\n7890abcdefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234\n567890abcdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij12\n34567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij12\n34567890abcdefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefgh\nij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefgh\nij1234567890abcdefghij\t\t\n",
-      "expected_file" : "scripts/1-22out",
+      "name" : "src/1-22",
       "args" : " < data/1-20",
-      "name" : "src/1-22"
+      "expected_file" : "scripts/1-22out"
    },
    "2-6" : {
       "bin" : "src/2-6",
       "expected" : "Write setbits(int x,va_args....) that sets each bit flag pass in a varargs style\nbit a set, 1\nbit b set, 2\nbit c set, 4\nbit d set, 8\nbit a and b set, 3\nbit a and c set, 5\nbit a and d set, 9\nbit a, b, c set, 7\n",
-      "expected_file" : "scripts/2-6out",
-      "name" : "src/2-6"
+      "name" : "src/2-6",
+      "expected_file" : "scripts/2-6out"
    },
    "2-3" : {
       "bin" : "src/2-3",
       "expected" : "Write htoi which converts a char * of hex digits into an int number\nhtoi 0x2f34b = 193355\nhtoi 0x1234567 = 19088743\nhtoi 0x2 = 2\nhtoi 0x2a = 42\nhtoi 0x2A = 42\nhtoi 0X2A = 42\n",
-      "expected_file" : "scripts/2-3out",
-      "name" : "src/2-3"
+      "name" : "src/2-3",
+      "expected_file" : "scripts/2-3out"
    },
    "4-6" : {
       "bin" : "src/4-6",
@@ -36,38 +36,38 @@
    "2-1" : {
       "bin" : "src/2-1",
       "expected" : "Write a program to print out ranges of char, short, int, long vars (both signed and unsigned)\nunsigned char range is 0 to 255\nunsigned short range is 0 to 65535\n",
-      "expected_file" : "scripts/2-1out",
-      "name" : "src/2-1"
+      "name" : "src/2-1",
+      "expected_file" : "scripts/2-1out"
    },
    "1-21" : {
       "bin" : "src/1-21",
       "expected" : "entab - replace N spaces with tabs\none space\ntwo  spaces\nthree\tspaces\nfour\t spaces\nfive\t  spaces\nsix\t\tspaces\n",
-      "args" : "< data/1-21",
+      "expected_file" : "scripts/1-21out",
       "name" : "src/1-21",
-      "expected_file" : "scripts/1-21out"
+      "args" : "< data/1-21"
    },
    "1-23" : {
       "bin" : "src/1-23",
       "expected" : "Remove all /* */ comments from a source file\n\n\nline before a c++ comment\n\n\n\n\nline after a c++ comment\n",
-      "args" : " data/1-23",
+      "expected_file" : "scripts/1-23out",
       "name" : "src/1-23",
-      "expected_file" : "scripts/1-23out"
+      "args" : " data/1-23"
    },
    "5-3" : {
       "bin" : "src/5-3",
       "expected" : "Write a pointer based version of strcat(dest,src)\nconcatenate b to end of a = ab\nconcatenate str2 to end of ab = abstr2\nconcatenate str2 to end of str3 = str3str2",
       "name" : "src/5-3"
    },
+   "4-3" : {
+      "regex_expected" : "/Write a calculator program, hello TI-80!!\npre push 0x[0-9A-Za-z]+, 1\npost push 0x[0-9A-Za-z]+, 1\npre push 0x[0-9A-Za-z]+, \u0000\npost push 0x[0-9A-Za-z]+, \u0000\npre push 0x[0-9A-Za-z]+, [+]\npost push 0x[0-9A-Za-z]+, [+]\npre push 0x[0-9A-Za-z]+, 2\npost push 0x[0-9A-Za-z]+, 2\npre push 0x[0-9A-Za-z]+, \u0000\npost push 0x[0-9A-Za-z]+, \u0000\npre push 0x[0-9A-Za-z]+, [-]\npost push 0x[0-9A-Za-z]+, [-]\npre push 0x[0-9A-Za-z]+, 3\npost push 0x[0-9A-Za-z]+, 3/",
+      "bin" : "src/4-3",
+      "args" : " < data/4-3",
+      "name" : "src/4-3"
+   },
    "5-9" : {
       "bin" : "src/5-9",
       "expected" : "Rewrite day_of_year and month_day with pointers instead of indexing",
       "name" : "src/5-9"
-   },
-   "4-3" : {
-      "regex_expected" : "/Write a calculator program, hello TI-80!!\npre push 0x[0-9A-Za-z]+, 1\npost push 0x[0-9A-Za-z]+, 1\npre push 0x[0-9A-Za-z]+, \u0000\npost push 0x[0-9A-Za-z]+, \u0000\npre push 0x[0-9A-Za-z]+, [+]\npost push 0x[0-9A-Za-z]+, [+]\npre push 0x[0-9A-Za-z]+, 2\npost push 0x[0-9A-Za-z]+, 2\npre push 0x[0-9A-Za-z]+, \u0000\npost push 0x[0-9A-Za-z]+, \u0000\npre push 0x[0-9A-Za-z]+, [-]\npost push 0x[0-9A-Za-z]+, [-]\npre push 0x[0-9A-Za-z]+, 3\npost push 0x[0-9A-Za-z]+, 3/",
-      "bin" : "src/4-3",
-      "name" : "src/4-3",
-      "args" : " < data/4-3"
    },
    "5-7" : {
       "bin" : "src/5-7",
@@ -77,27 +77,27 @@
    "4-2" : {
       "bin" : "src/4-2",
       "expected" : "Write an atof function that handles scientific notation\nstarrt 1e1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1e1 parts +1.0+1.000000000\nlocal_atof(1e1) = 1.000000\n\n\n\nstarrt 1e12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1e12 parts +1.0+12.000000000\nlocal_atof(1e12) = 12.000000\n\n\n\nstarrt 1e0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1e0 parts +1.0+0.000000000\nlocal_atof(1e0) = 0.000000\n\n\n\nstarrt 1E1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1E1 parts +1.0+1.000000000\nlocal_atof(1E1) = 1.000000\n\n\n\nstarrt 1E12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1E12 parts +1.0+12.000000000\nlocal_atof(1E12) = 12.000000\n\n\n\nstarrt 1E0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1E0 parts +1.0+0.000000000\nlocal_atof(1E0) = 0.000000\n\n\n\nstarrt 1-e1\nparse error at character e, position 3, string 1-e1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1-e1 parts +1.0-1.000000000\nlocal_atof(1-e1) = 1.000000\n\n\n\nstarrt 1-e12\nparse error at character e, position 3, string 1-e12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n1-e12 parts +1.0-0.000000000\nlocal_atof(1-e12) = 0.000000\n\n\n\nstarrt 1-e0\nparse error at character e, position 3, string 1-e0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n1-e0 parts +1.0-1.000000000\nlocal_atof(1-e0) = 1.000000\n\n\n\nstarrt 1+e1\nparse error at character e, position 3, string 1+e1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1+e1 parts +1.0+1.000000000\nlocal_atof(1+e1) = 1.000000\n\n\n\nstarrt 1+e12\nparse error at character e, position 3, string 1+e12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1+e12 parts +1.0+12.000000000\nlocal_atof(1+e12) = 12.000000\n\n\n\nstarrt 1+e0\nparse error at character e, position 3, string 1+e0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1+e0 parts +1.0+0.000000000\nlocal_atof(1+e0) = 0.000000\n\n\n\nstarrt 1-E1\nparse error at character E, position 3, string 1-E1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1-E1 parts +1.0-1.000000000\nlocal_atof(1-E1) = 1.000000\n\n\n\nstarrt 1-E12\nparse error at character E, position 3, string 1-E12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n1-E12 parts +1.0-0.000000000\nlocal_atof(1-E12) = 0.000000\n\n\n\nstarrt 1-E0\nparse error at character E, position 3, string 1-E0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n1-E0 parts +1.0-1.000000000\nlocal_atof(1-E0) = 1.000000\n\n\n\nstarrt 1+E1\nparse error at character E, position 3, string 1+E1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1+E1 parts +1.0+1.000000000\nlocal_atof(1+E1) = 1.000000\n\n\n\nstarrt 1+E12\nparse error at character E, position 3, string 1+E12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1+E12 parts +1.0+12.000000000\nlocal_atof(1+E12) = 12.000000\n\n\n\nstarrt 1+E0\nparse error at character E, position 3, string 1+E0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1+E0 parts +1.0+0.000000000\nlocal_atof(1+E0) = 0.000000\n\n\n\nstarrt 12e1\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n12e1 parts +12.0+1.000000000\nlocal_atof(12e1) = 12.000000\n\n\n\nstarrt 12e12\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n12e12 parts +12.0+12.000000000\nlocal_atof(12e12) = 144.000000\n\n\n\nstarrt 12e0\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n12e0 parts +12.0+0.000000000\nlocal_atof(12e0) = 0.000000\n\n\n\nstarrt 12E1\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n12E1 parts +12.0+1.000000000\nlocal_atof(12E1) = 12.000000\n\n\n\nstarrt 12E12\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n12E12 parts +12.0+12.000000000\nlocal_atof(12E12) = 144.000000\n\n\n\nstarrt 12E0\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n12E0 parts +12.0+0.000000000\nlocal_atof(12E0) = 0.000000\n\n\n\nstarrt 12-e1\nparse error at character e, position 4, string 12-e1\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n12-e1 parts +12.0-1.000000000\nlocal_atof(12-e1) = 12.000000\n\n\n\nstarrt 12-e12\nparse error at character e, position 4, string 12-e12\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n12-e12 parts +12.0-0.000000000\nlocal_atof(12-e12) = 0.000000\n\n\n\nstarrt 12-e0\nparse error at character e, position 4, string 12-e0\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n12-e0 parts +12.0-1.000000000\nlocal_atof(12-e0) = 12.000000\n\n\n\nstarrt 12+e1\nparse error at character e, position 4, string 12+e1\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n12+e1 parts +12.0+1.000000000\nlocal_atof(12+e1) = 12.000000\n\n\n\nstarrt 12+e12\nparse error at character e, position 4, string 12+e12\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n12+e12 parts +12.0+12.000000000\nlocal_atof(12+e12) = 144.000000\n\n\n\nstarrt 12+e0\nparse error at character e, position 4, string 12+e0\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n12+e0 parts +12.0+0.000000000\nlocal_atof(12+e0) = 0.000000\n\n\n\nstarrt 12-E1\nparse error at character E, position 4, string 12-E1\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n12-E1 parts +12.0-1.000000000\nlocal_atof(12-E1) = 12.000000\n\n\n\nstarrt 12-E12\nparse error at character E, position 4, string 12-E12\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n12-E12 parts +12.0-0.000000000\nlocal_atof(12-E12) = 0.000000\n\n\n\nstarrt 12-E0\nparse error at character E, position 4, string 12-E0\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n12-E0 parts +12.0-1.000000000\nlocal_atof(12-E0) = 12.000000\n\n\n\nstarrt 12+E1\nparse error at character E, position 4, string 12+E1\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n12+E1 parts +12.0+1.000000000\nlocal_atof(12+E1) = 12.000000\n\n\n\nstarrt 12+E12\nparse error at character E, position 4, string 12+E12\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n12+E12 parts +12.0+12.000000000\nlocal_atof(12+E12) = 144.000000\n\n\n\nstarrt 12+E0\nparse error at character E, position 4, string 12+E0\nbuilding sig.digits[1] = 2, sum 2\nbuilding sig.digits[0] = 1, sum 12\nsig final 12\nfrac final 0\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n12+E0 parts +12.0+0.000000000\nlocal_atof(12+E0) = 0.000000\n\n\n\nstarrt 1.2e1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1.2e1 parts +1.2+1.000000000\nlocal_atof(1.2e1) = 1.000000\n\n\n\nstarrt 1.2e12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1.2e12 parts +1.2+12.000000000\nlocal_atof(1.2e12) = 12.000000\n\n\n\nstarrt 1.2e0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1.2e0 parts +1.2+0.000000000\nlocal_atof(1.2e0) = 0.000000\n\n\n\nstarrt 1.2E1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1.2E1 parts +1.2+1.000000000\nlocal_atof(1.2E1) = 1.000000\n\n\n\nstarrt 1.2E12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1.2E12 parts +1.2+12.000000000\nlocal_atof(1.2E12) = 12.000000\n\n\n\nstarrt 1.2E0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1.2E0 parts +1.2+0.000000000\nlocal_atof(1.2E0) = 0.000000\n\n\n\nstarrt 1.2-e1\nparse error at character e, position 5, string 1.2-e1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1.2-e1 parts +1.2-1.000000000\nlocal_atof(1.2-e1) = 1.000000\n\n\n\nstarrt 1.2-e12\nparse error at character e, position 5, string 1.2-e12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n1.2-e12 parts +1.2-0.000000000\nlocal_atof(1.2-e12) = 0.000000\n\n\n\nstarrt 1.2-e0\nparse error at character e, position 5, string 1.2-e0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n1.2-e0 parts +1.2-1.000000000\nlocal_atof(1.2-e0) = 1.000000\n\n\n\nstarrt 1.2+e1\nparse error at character e, position 5, string 1.2+e1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1.2+e1 parts +1.2+1.000000000\nlocal_atof(1.2+e1) = 1.000000\n\n\n\nstarrt 1.2+e12\nparse error at character e, position 5, string 1.2+e12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1.2+e12 parts +1.2+12.000000000\nlocal_atof(1.2+e12) = 12.000000\n\n\n\nstarrt 1.2+e0\nparse error at character e, position 5, string 1.2+e0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1.2+e0 parts +1.2+0.000000000\nlocal_atof(1.2+e0) = 0.000000\n\n\n\nstarrt 1.2-E1\nparse error at character E, position 5, string 1.2-E1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1.2-E1 parts +1.2-1.000000000\nlocal_atof(1.2-E1) = 1.000000\n\n\n\nstarrt 1.2-E12\nparse error at character E, position 5, string 1.2-E12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n1.2-E12 parts +1.2-0.000000000\nlocal_atof(1.2-E12) = 0.000000\n\n\n\nstarrt 1.2-E0\nparse error at character E, position 5, string 1.2-E0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n1.2-E0 parts +1.2-1.000000000\nlocal_atof(1.2-E0) = 1.000000\n\n\n\nstarrt 1.2+E1\nparse error at character E, position 5, string 1.2+E1\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n1.2+E1 parts +1.2+1.000000000\nlocal_atof(1.2+E1) = 1.000000\n\n\n\nstarrt 1.2+E12\nparse error at character E, position 5, string 1.2+E12\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n1.2+E12 parts +1.2+12.000000000\nlocal_atof(1.2+E12) = 12.000000\n\n\n\nstarrt 1.2+E0\nparse error at character E, position 5, string 1.2+E0\nbuilding sig.digits[0] = 1, sum 1\nsig final 1\nbuilding frac.digits[0] = 2, sum 2\nfrac final 2\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n1.2+E0 parts +1.2+0.000000000\nlocal_atof(1.2+E0) = 0.000000\n\n\n\nstarrt .1e1\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.1e1 parts +0.1+1.000000000\nlocal_atof(.1e1) = 0.000000\n\n\n\nstarrt .1e12\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.1e12 parts +0.1+12.000000000\nlocal_atof(.1e12) = 0.000000\n\n\n\nstarrt .1e0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.1e0 parts +0.1+0.000000000\nlocal_atof(.1e0) = 0.000000\n\n\n\nstarrt .1E1\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.1E1 parts +0.1+1.000000000\nlocal_atof(.1E1) = 0.000000\n\n\n\nstarrt .1E12\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.1E12 parts +0.1+12.000000000\nlocal_atof(.1E12) = 0.000000\n\n\n\nstarrt .1E0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.1E0 parts +0.1+0.000000000\nlocal_atof(.1E0) = 0.000000\n\n\n\nstarrt .1-e1\nparse error at character e, position 4, string .1-e1\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.1-e1 parts +0.1-1.000000000\nlocal_atof(.1-e1) = 0.000000\n\n\n\nstarrt .1-e12\nparse error at character e, position 4, string .1-e12\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n.1-e12 parts +0.1-0.000000000\nlocal_atof(.1-e12) = 0.000000\n\n\n\nstarrt .1-e0\nparse error at character e, position 4, string .1-e0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n.1-e0 parts +0.1-1.000000000\nlocal_atof(.1-e0) = 0.000000\n\n\n\nstarrt .1+e1\nparse error at character e, position 4, string .1+e1\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.1+e1 parts +0.1+1.000000000\nlocal_atof(.1+e1) = 0.000000\n\n\n\nstarrt .1+e12\nparse error at character e, position 4, string .1+e12\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.1+e12 parts +0.1+12.000000000\nlocal_atof(.1+e12) = 0.000000\n\n\n\nstarrt .1+e0\nparse error at character e, position 4, string .1+e0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.1+e0 parts +0.1+0.000000000\nlocal_atof(.1+e0) = 0.000000\n\n\n\nstarrt .1-E1\nparse error at character E, position 4, string .1-E1\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.1-E1 parts +0.1-1.000000000\nlocal_atof(.1-E1) = 0.000000\n\n\n\nstarrt .1-E12\nparse error at character E, position 4, string .1-E12\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n.1-E12 parts +0.1-0.000000000\nlocal_atof(.1-E12) = 0.000000\n\n\n\nstarrt .1-E0\nparse error at character E, position 4, string .1-E0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n.1-E0 parts +0.1-1.000000000\nlocal_atof(.1-E0) = 0.000000\n\n\n\nstarrt .1+E1\nparse error at character E, position 4, string .1+E1\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.1+E1 parts +0.1+1.000000000\nlocal_atof(.1+E1) = 0.000000\n\n\n\nstarrt .1+E12\nparse error at character E, position 4, string .1+E12\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.1+E12 parts +0.1+12.000000000\nlocal_atof(.1+E12) = 0.000000\n\n\n\nstarrt .1+E0\nparse error at character E, position 4, string .1+E0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.1+E0 parts +0.1+0.000000000\nlocal_atof(.1+E0) = 0.000000\n\n\n\nstarrt .12e1\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.12e1 parts +0.12+1.000000000\nlocal_atof(.12e1) = 0.000000\n\n\n\nstarrt .12e12\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.12e12 parts +0.12+12.000000000\nlocal_atof(.12e12) = 0.000000\n\n\n\nstarrt .12e0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.12e0 parts +0.12+0.000000000\nlocal_atof(.12e0) = 0.000000\n\n\n\nstarrt .12E1\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.12E1 parts +0.12+1.000000000\nlocal_atof(.12E1) = 0.000000\n\n\n\nstarrt .12E12\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.12E12 parts +0.12+12.000000000\nlocal_atof(.12E12) = 0.000000\n\n\n\nstarrt .12E0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.12E0 parts +0.12+0.000000000\nlocal_atof(.12E0) = 0.000000\n\n\n\nstarrt .12-e1\nparse error at character e, position 5, string .12-e1\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.12-e1 parts +0.12-1.000000000\nlocal_atof(.12-e1) = 0.000000\n\n\n\nstarrt .12-e12\nparse error at character e, position 5, string .12-e12\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n.12-e12 parts +0.12-0.000000000\nlocal_atof(.12-e12) = 0.000000\n\n\n\nstarrt .12-e0\nparse error at character e, position 5, string .12-e0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n.12-e0 parts +0.12-1.000000000\nlocal_atof(.12-e0) = 0.000000\n\n\n\nstarrt .12+e1\nparse error at character e, position 5, string .12+e1\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.12+e1 parts +0.12+1.000000000\nlocal_atof(.12+e1) = 0.000000\n\n\n\nstarrt .12+e12\nparse error at character e, position 5, string .12+e12\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.12+e12 parts +0.12+12.000000000\nlocal_atof(.12+e12) = 0.000000\n\n\n\nstarrt .12+e0\nparse error at character e, position 5, string .12+e0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.12+e0 parts +0.12+0.000000000\nlocal_atof(.12+e0) = 0.000000\n\n\n\nstarrt .12-E1\nparse error at character E, position 5, string .12-E1\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.12-E1 parts +0.12-1.000000000\nlocal_atof(.12-E1) = 0.000000\n\n\n\nstarrt .12-E12\nparse error at character E, position 5, string .12-E12\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n.12-E12 parts +0.12-0.000000000\nlocal_atof(.12-E12) = 0.000000\n\n\n\nstarrt .12-E0\nparse error at character E, position 5, string .12-E0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n.12-E0 parts +0.12-1.000000000\nlocal_atof(.12-E0) = 0.000000\n\n\n\nstarrt .12+E1\nparse error at character E, position 5, string .12+E1\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n.12+E1 parts +0.12+1.000000000\nlocal_atof(.12+E1) = 0.000000\n\n\n\nstarrt .12+E12\nparse error at character E, position 5, string .12+E12\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n.12+E12 parts +0.12+12.000000000\nlocal_atof(.12+E12) = 0.000000\n\n\n\nstarrt .12+E0\nparse error at character E, position 5, string .12+E0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n.12+E0 parts +0.12+0.000000000\nlocal_atof(.12+E0) = 0.000000\n\n\n\nstarrt 0.1e1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.1e1 parts +0.1+1.000000000\nlocal_atof(0.1e1) = 0.000000\n\n\n\nstarrt 0.1e12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.1e12 parts +0.1+12.000000000\nlocal_atof(0.1e12) = 0.000000\n\n\n\nstarrt 0.1e0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.1e0 parts +0.1+0.000000000\nlocal_atof(0.1e0) = 0.000000\n\n\n\nstarrt 0.1E1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.1E1 parts +0.1+1.000000000\nlocal_atof(0.1E1) = 0.000000\n\n\n\nstarrt 0.1E12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.1E12 parts +0.1+12.000000000\nlocal_atof(0.1E12) = 0.000000\n\n\n\nstarrt 0.1E0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.1E0 parts +0.1+0.000000000\nlocal_atof(0.1E0) = 0.000000\n\n\n\nstarrt 0.1-e1\nparse error at character e, position 5, string 0.1-e1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.1-e1 parts +0.1-1.000000000\nlocal_atof(0.1-e1) = 0.000000\n\n\n\nstarrt 0.1-e12\nparse error at character e, position 5, string 0.1-e12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n0.1-e12 parts +0.1-0.000000000\nlocal_atof(0.1-e12) = 0.000000\n\n\n\nstarrt 0.1-e0\nparse error at character e, position 5, string 0.1-e0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n0.1-e0 parts +0.1-1.000000000\nlocal_atof(0.1-e0) = 0.000000\n\n\n\nstarrt 0.1+e1\nparse error at character e, position 5, string 0.1+e1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.1+e1 parts +0.1+1.000000000\nlocal_atof(0.1+e1) = 0.000000\n\n\n\nstarrt 0.1+e12\nparse error at character e, position 5, string 0.1+e12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.1+e12 parts +0.1+12.000000000\nlocal_atof(0.1+e12) = 0.000000\n\n\n\nstarrt 0.1+e0\nparse error at character e, position 5, string 0.1+e0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.1+e0 parts +0.1+0.000000000\nlocal_atof(0.1+e0) = 0.000000\n\n\n\nstarrt 0.1-E1\nparse error at character E, position 5, string 0.1-E1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.1-E1 parts +0.1-1.000000000\nlocal_atof(0.1-E1) = 0.000000\n\n\n\nstarrt 0.1-E12\nparse error at character E, position 5, string 0.1-E12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n0.1-E12 parts +0.1-0.000000000\nlocal_atof(0.1-E12) = 0.000000\n\n\n\nstarrt 0.1-E0\nparse error at character E, position 5, string 0.1-E0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n0.1-E0 parts +0.1-1.000000000\nlocal_atof(0.1-E0) = 0.000000\n\n\n\nstarrt 0.1+E1\nparse error at character E, position 5, string 0.1+E1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.1+E1 parts +0.1+1.000000000\nlocal_atof(0.1+E1) = 0.000000\n\n\n\nstarrt 0.1+E12\nparse error at character E, position 5, string 0.1+E12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.1+E12 parts +0.1+12.000000000\nlocal_atof(0.1+E12) = 0.000000\n\n\n\nstarrt 0.1+E0\nparse error at character E, position 5, string 0.1+E0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[0] = 1, sum 1\nfrac final 1\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.1+E0 parts +0.1+0.000000000\nlocal_atof(0.1+E0) = 0.000000\n\n\n\nstarrt 0.12e1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.12e1 parts +0.12+1.000000000\nlocal_atof(0.12e1) = 0.000000\n\n\n\nstarrt 0.12e12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.12e12 parts +0.12+12.000000000\nlocal_atof(0.12e12) = 0.000000\n\n\n\nstarrt 0.12e0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.12e0 parts +0.12+0.000000000\nlocal_atof(0.12e0) = 0.000000\n\n\n\nstarrt 0.12E1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.12E1 parts +0.12+1.000000000\nlocal_atof(0.12E1) = 0.000000\n\n\n\nstarrt 0.12E12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.12E12 parts +0.12+12.000000000\nlocal_atof(0.12E12) = 0.000000\n\n\n\nstarrt 0.12E0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.12E0 parts +0.12+0.000000000\nlocal_atof(0.12E0) = 0.000000\n\n\n\nstarrt 0.12-e1\nparse error at character e, position 6, string 0.12-e1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.12-e1 parts +0.12-1.000000000\nlocal_atof(0.12-e1) = 0.000000\n\n\n\nstarrt 0.12-e12\nparse error at character e, position 6, string 0.12-e12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n0.12-e12 parts +0.12-0.000000000\nlocal_atof(0.12-e12) = 0.000000\n\n\n\nstarrt 0.12-e0\nparse error at character e, position 6, string 0.12-e0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n0.12-e0 parts +0.12-1.000000000\nlocal_atof(0.12-e0) = 0.000000\n\n\n\nstarrt 0.12+e1\nparse error at character e, position 6, string 0.12+e1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.12+e1 parts +0.12+1.000000000\nlocal_atof(0.12+e1) = 0.000000\n\n\n\nstarrt 0.12+e12\nparse error at character e, position 6, string 0.12+e12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.12+e12 parts +0.12+12.000000000\nlocal_atof(0.12+e12) = 0.000000\n\n\n\nstarrt 0.12+e0\nparse error at character e, position 6, string 0.12+e0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.12+e0 parts +0.12+0.000000000\nlocal_atof(0.12+e0) = 0.000000\n\n\n\nstarrt 0.12-E1\nparse error at character E, position 6, string 0.12-E1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.12-E1 parts +0.12-1.000000000\nlocal_atof(0.12-E1) = 0.000000\n\n\n\nstarrt 0.12-E12\nparse error at character E, position 6, string 0.12-E12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 0.000000000\n0.12-E12 parts +0.12-0.000000000\nlocal_atof(0.12-E12) = 0.000000\n\n\n\nstarrt 0.12-E0\nparse error at character E, position 6, string 0.12-E0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 1.000000000\n0.12-E0 parts +0.12-1.000000000\nlocal_atof(0.12-E0) = 0.000000\n\n\n\nstarrt 0.12+E1\nparse error at character E, position 6, string 0.12+E1\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 1, sum 1\nexp final 1.000000000\n0.12+E1 parts +0.12+1.000000000\nlocal_atof(0.12+E1) = 0.000000\n\n\n\nstarrt 0.12+E12\nparse error at character E, position 6, string 0.12+E12\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[1] = 2, sum 2\nbuilding exp.digits[0] = 1, sum 12\nexp final 12.000000000\n0.12+E12 parts +0.12+12.000000000\nlocal_atof(0.12+E12) = 0.000000\n\n\n\nstarrt 0.12+E0\nparse error at character E, position 6, string 0.12+E0\nbuilding sig.digits[0] = 0, sum 0\nsig final 0\nbuilding frac.digits[1] = 2, sum 2\nbuilding frac.digits[0] = 1, sum 12\nfrac final 12\nbuilding exp.digits[0] = 0, sum 0\nexp final 0.000000000\n0.12+E0 parts +0.12+0.000000000\nlocal_atof(0.12+E0) = 0.000000\n\n\n\n",
-      "expected_file" : "scripts/4-2out",
-      "name" : "src/4-2"
+      "name" : "src/4-2",
+      "expected_file" : "scripts/4-2out"
    },
    "1-18" : {
       "bin" : "src/1-18",
       "expected" : "Remove trailing whitespace (except newline) from input lines and delete blank lines\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\nshort line\nblank line was before\nbreak lines at somewhere somewhere somewhere somewhere somewhere around here\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n",
-      "expected_file" : "scripts/1-18out",
+      "args" : " < data/1-16",
       "name" : "src/1-18",
-      "args" : " < data/1-16"
-   },
-   "1-20" : {
-      "bin" : "src/1-20",
-      "expected" : "detab - replace tabs with N spaces\nReplaces tabs with 3 spaces\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      \nshort   line\n\nblank   line   was   before      \nbreak   lines   at   somewhere   somewhere   somewhere   somewhere   somewhere   around   here\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      \n",
-      "expected_file" : "scripts/1-20out",
-      "name" : "src/1-20",
-      "args" : " < data/1-20 "
+      "expected_file" : "scripts/1-18out"
    },
    "4-7" : {
       "bin" : "src/4-7",
       "expected" : "Write a calculator program, write ungets(s) that pushes back an entire string.  Should ungets know about buf and bufp or should it just use ungetch?",
       "name" : "src/4-7"
+   },
+   "1-20" : {
+      "bin" : "src/1-20",
+      "expected" : "detab - replace tabs with N spaces\nReplaces tabs with 3 spaces\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      \nshort   line\n\nblank   line   was   before      \nbreak   lines   at   somewhere   somewhere   somewhere   somewhere   somewhere   around   here\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij      \n",
+      "args" : " < data/1-20 ",
+      "name" : "src/1-20",
+      "expected_file" : "scripts/1-20out"
    },
    "4-1" : {
       "regex_expected" : "/^\\s*Write a strrindex\\(s,t\\) function that return the last occurrence of t in s or -1 if not found \\(this can be compared to rindex\\?\\)\\s*Last index of t in This is a string we will test the last index for. is 37\\s*Last index of z in This is a string we will test the last index for. is -1\\s*Last index of r in This is a string we will test the last index for. is 47\\s*Last index of r in r is 0\\s*Last index of z in  is -1\\s*$/",
@@ -117,16 +117,16 @@
    "1-23-fread" : {
       "bin" : "src/1-23-fread",
       "expected" : "Remove all /* */ comments from a source file\n\n\nline before a c++ comment\n\n\n\n\nline after a c++ comment\n",
-      "expected_file" : "scripts/1-23out",
+      "args" : "data/1-23",
       "name" : "src/1-23-fread",
-      "args" : "data/1-23"
+      "expected_file" : "scripts/1-23out"
    },
    "1-17" : {
       "bin" : "src/1-17",
       "expected" : "Break all input lines longer than atoi(<argv[1]>) characters\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghi\nj1234567890abcdefghij1234567890abcdefghij  \nshort line\n\nblank line was before  \nbreak lines at somewhere somewhere somewhere somewhere somewhere around here\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghi\nj1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdef\nghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcde\nfghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890ab\ncdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij123456789\n0abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij12345678\n90abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij12345\n67890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij12\n34567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1\n234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefgh\nij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcde\nfghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcd\nefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890a\nbcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  12345678\n90abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567\n890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234\n567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1\n234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n1234567890abcdefghij1234567890abcdefghij  \n",
-      "expected_file" : "scripts/1-17out",
+      "name" : "src/1-17",
       "args" : " < data/1-16",
-      "name" : "src/1-17"
+      "expected_file" : "scripts/1-17out"
    },
    "8-6" : {
       "regex_expected" : "/^\\s*Rewrite calloc\\(n, size\\) using malloc\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   9\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   8\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   7\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   6\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   5\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   4\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   3\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   2\\s+test name asdf\\s+test ptr  0x[0-9A-Za-z]+\\s+test id   1\\s+test name asdf\\s*$/",
@@ -151,9 +151,9 @@
    "8-5" : {
       "bin" : "src/8-5",
       "expected" : "modify fsize to print all info contained in inode entries\nStat data/1-22-result: \n\tdev_t: 2049\n\tino_t: 395465\n\tmode_t: 33204\n\tnlink_t: 1\n\tuid_t: 1000\n\tgid_t: 1000\n\tdev_t: 0\n\toff_t: 1859\n\tblksize_t: 4096\n\tblkcnt_t: 8\n\ttime_t: 1367361550\n\ttime_t: 1366414854\n\ttime_t: 1366414854\nStat (null): \n\tdev_t: 2049\n\tino_t: 395465\n\tmode_t: 33204\n\tnlink_t: 1\n\tuid_t: 1000\n\tgid_t: 1000\n\tdev_t: 0\n\toff_t: 1859\n\tblksize_t: 4096\n\tblkcnt_t: 8\n\ttime_t: 1367361550\n\ttime_t: 1366414854\n\ttime_t: 1366414854\n",
-      "expected_file" : "scripts/8-5out",
+      "args" : "data/1-22-result",
       "name" : "src/8-5",
-      "args" : "data/1-22-result"
+      "expected_file" : "scripts/8-5out"
    },
    "4-10" : {
       "bin" : "src/4-10",
@@ -163,12 +163,12 @@
    "2-4" : {
       "bin" : "src/2-4",
       "expected" : "Write a function, squeeze(char *  srcString,char * subString) that deletes all occurences of each char in subString in srcString\nOriginal string: Start with a longish string\nResult after squeeze with s: Start with a longih tring\nResult after squeeze with h: Start wit a longi tring\nResult after squeeze with e: Start wit a longi tring\n",
-      "expected_file" : "scripts/2-4out",
-      "name" : "src/2-4"
+      "name" : "src/2-4",
+      "expected_file" : "scripts/2-4out"
    },
    "7-1" : {
       "bin" : "src/7-1",
-      "expected" : "Write a program, like rcfile, that changes behavior based on name of argv[0]",
+      "expected" : "Write a program, like rcfile, that changes behavior based on name of argv[0]\n7-1\nwotevs",
       "name" : "src/7-1"
    },
    "6-1" : {
@@ -176,91 +176,102 @@
       "expected" : "Update getword to handle underscores, string constants, comments, preprocessor control lines",
       "name" : "src/6-1"
    },
+   "fdsa" : {
+      "bin" : "src/fdsa",
+      "expected" : "Write a program, like rcfile, that changes behavior based on name of argv[0]\nfdsa\nI must be fdsaing my mind\n",
+      "name" : "src/fdsa"
+   },
+   "asdf" : {
+      "bin" : "src/asdf",
+      "expected" : "Write a program, like rcfile, that changes behavior based on name of argv[0]\nasdf\nDoing whatever asdf tells me to do\n",
+      "name" : "src/asdf"
+   },
    "5-4" : {
       "bin" : "src/5-4",
       "expected" : "Write strend (better called endsWith(str,substr)) that returns 1 if str ends with substr\nThis is a sentence endsWith ence? yes,  passed\nThis is a sentence endsWith wrong? no,  passed\nThis is a sentence endsWith sentence? yes,  passed\n endsWith .? no,  passed\n endsWith ? yes,  passed\n(null) endsWith (null)? no,  passed\na endsWith a? yes,  passed\n",
-      "name" : "src/5-4",
-      "expected_file" : "scripts/5-4out"
+      "expected_file" : "scripts/5-4out",
+      "name" : "src/5-4"
+   },
+   "6-3" : {
+      "bin" : "src/6-3",
+      "expected" : "Write a cross-referencer that prints a list of all words in  a document and, for each word, a list of the line numbers of occurences of each word.  Have an ignore list of words like 'a', 'the, etc.\nadsff, count 1\nasdff, count 1\nasdfzxcvdsafd, count 1\ngfdsfdasdfa, count 1\nqewaaaar, count 2\nqewr, count 5\nqewvvvr, count 1\nrewq, count 1\n",
+      "expected_file" : "scripts/6-3out",
+      "name" : "src/6-3",
+      "args" : " data/6-2"
    },
    "6-5" : {
       "bin" : "src/6-5",
       "expected" : "Write a function, undef that removes entries from lookup table",
       "name" : "src/6-5"
    },
-   "6-3" : {
-      "bin" : "src/6-3",
-      "expected" : "Write a cross-referencer that prints a list of all words in  a document and, for each word, a list of the line numbers of occurences of each word.  Have an ignore list of words like 'a', 'the, etc.\nadsff, count 1\nasdff, count 1\nasdfzxcvdsafd, count 1\ngfdsfdasdfa, count 1\nqewaaaar, count 2\nqewr, count 5\nqewvvvr, count 1\nrewq, count 1\n",
-      "args" : " data/6-2",
-      "name" : "src/6-3",
-      "expected_file" : "scripts/6-3out"
-   },
    "3-3" : {
       "bin" : "src/3-3",
       "expected" : "Write an str2 = expand(str1) to expand shorthand notations of a-z, 0-9\npassed: test: This is a-z range, result: This is abcdefghijklmnopqrstuvwxyz range, expected: This is abcdefghijklmnopqrstuvwxyz range\npassed: test: This is 0-9 range, result: This is 0123456789 range, expected: This is 0123456789 range\npassed: test: This is a-z0-9 range, result: This is abcdefghijklmnopqrstuvwxyz0123456789 range, expected: This is abcdefghijklmnopqrstuvwxyz0123456789 range\npassed: test: This is 0-9a-z range, result: This is 0123456789abcdefghijklmnopqrstuvwxyz range, expected: This is 0123456789abcdefghijklmnopqrstuvwxyz range\npassed: test: 0-9a-z, result: 0123456789abcdefghijklmnopqrstuvwxyz, expected: 0123456789abcdefghijklmnopqrstuvwxyz\npassed: test: 0-3-5, result: 0123-5, expected: 0123-5\npassed: test: 0123-5, result: 012345, expected: 012345\npassed: test: 0-z, result: 0-z, expected: 0-z\npassed: test: A-z, result: A-z, expected: A-z\npassed: test: a-Z, result: a-Z, expected: a-Z\n",
-      "name" : "src/3-3",
-      "expected_file" : "scripts/3-3out"
+      "expected_file" : "scripts/3-3out",
+      "name" : "src/3-3"
    },
    "8-7" : {
+      "regex_expected" : "/Rewrite malloc and add bounds checking.\ngot allocation 0x[0-9A-Za-z]+\ngot var to use 0x[0-9A-Za-z]+\nSize allocated is 123\\? yes/",
       "bin" : "src/8-7",
-      "expected" : "Rewrite malloc and add bounds checking",
-      "name" : "src/8-7"
+      "name" : "src/8-7",
+      "args" : "123"
    },
    "7-3" : {
       "bin" : "src/7-3",
       "expected" : "Write my own printf that handles %<letter> replacements for user-defined objects",
       "name" : "src/7-3"
    },
-   "1-24" : {
-      "bin" : "src/1-24",
-      "expected" : "Write a program that checks for balance with parentheses, brackets, braces\nbrackets out of balance at line 14\n",
-      "args" : "data/1-24",
-      "name" : "src/1-24",
-      "expected_file" : "scripts/1-24out"
-   },
    "1-24-stack" : {
       "regex_expected" : "/Write a program that checks for balance with parentheses, brackets, braces\nOut of balance at end of source, dumping what's left\nstack: [{], 0x[0-9A-Za-z]+\nstack: \u0000, 0x[0-9A-Za-z]+/",
       "bin" : "src/1-24-stack",
-      "name" : "src/1-24-stack",
-      "args" : "data/1-24"
+      "args" : "data/1-24",
+      "name" : "src/1-24-stack"
    },
-   "8-1" : {
-      "bin" : "src/8-1",
-      "expected" : "Rewrite cat with read/write/open/close instead of standard library equivalents. Which is faster, my own cat or the real cat?",
-      "name" : "src/8-1"
+   "1-24" : {
+      "bin" : "src/1-24",
+      "expected" : "Write a program that checks for balance with parentheses, brackets, braces\nbrackets out of balance at line 14\n",
+      "expected_file" : "scripts/1-24out",
+      "name" : "src/1-24",
+      "args" : "data/1-24"
    },
    "8-4" : {
       "bin" : "src/8-4",
       "expected" : "fseek is identical to lseek, except that fseek takes a file pointer, not a file descriptor write fseek.",
       "name" : "src/8-4"
    },
-   "1-1" : {
-      "bin" : "src/1-1",
-      "expected" : "hello, world\r\n",
-      "name" : "src/1-1"
+   "8-1" : {
+      "bin" : "src/8-1",
+      "expected" : "Rewrite cat with read/write/open/close instead of standard library equivalents. Which is faster, my own cat or the real cat?",
+      "name" : "src/8-1"
    },
    "1-16" : {
       "bin" : "src/1-16",
       "expected" : "Print the length of arbitrarily long input lines and all the text in line\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  \nLength: 123\nshort line\nLength: 11\n\nLength: 1\nblank line was before  \nLength: 24\nbreak lines at somewhere somewhere somewhere somewhere somewhere around here\nLength: 77\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij  \nLength: 1465\n",
-      "expected_file" : "scripts/1-16out",
+      "name" : "src/1-16",
       "args" : " < data/1-16",
-      "name" : "src/1-16"
+      "expected_file" : "scripts/1-16out"
    },
-   "1-4" : {
-      "bin" : "src/1-4",
-      "expected" : "Write Celsius to Farenheit\n100.00 C = 212.00 F",
-      "args" : " 100 ",
-      "name" : "src/1-4"
+   "1-1" : {
+      "bin" : "src/1-1",
+      "expected" : "hello, world\r\n",
+      "name" : "src/1-1"
    },
    "4-4" : {
       "bin" : "src/4-4",
       "expected" : "Write a calculator program, add commands to print the top stack element without popping, duplicate the top element, and to swap the top two elements.  Add a command to clear the stack",
       "name" : "src/4-4"
    },
+   "1-4" : {
+      "bin" : "src/1-4",
+      "expected" : "Write Celsius to Farenheit\n100.00 C = 212.00 F",
+      "name" : "src/1-4",
+      "args" : " 100 "
+   },
    "4-12" : {
       "bin" : "src/4-12",
       "expected" : "Adapt printd, writing a recursive itoa\nitoa(12345) = 12345, strlen 5\nitoa(1234) = 1234, strlen 4\nitoa(123) = 123, strlen 3\nitoa(12) = 12, strlen 2\nitoa(1) = 1, strlen 1\nitoa(1234567) = 1234567, strlen 7\n",
-      "name" : "src/4-12",
-      "expected_file" : "scripts/4-12out"
+      "expected_file" : "scripts/4-12out",
+      "name" : "src/4-12"
    },
    "5-17" : {
       "bin" : "src/5-17",
@@ -275,7 +286,7 @@
    "1-3" : {
       "bin" : "src/1-3",
       "expected" : "123 C == 253.4000 F\n123 F == 50.5556 C",
-      "name" : "src/1-3",
-      "args" : "123"
+      "args" : "123",
+      "name" : "src/1-3"
    }
 }
