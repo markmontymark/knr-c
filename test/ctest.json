@@ -139,7 +139,7 @@
    },
    "8-5" : {
       "bin" : "src/8-5",
-      "expected" : "modify fsize to print all info contained in inode entries\nStat data/1-22-result: \n\tdev_t: 2049\n\tino_t: 395465\n\tmode_t: 33204\n\tnlink_t: 1\n\tuid_t: 1000\n\tgid_t: 1000\n\tdev_t: 0\n\toff_t: 1859\n\tblksize_t: 4096\n\tblkcnt_t: 8\n\ttime_t: 1367852667\n\ttime_t: 1366414854\n\ttime_t: 1366414854\n",
+      "regex_expected" : "/modify fsize to print all info contained in inode entries\nStat data.1-22-result:\\s*dev_t: [0-9]+\\s*ino_t: [0-9]+\\s*mode_t: [0-9]+\\s*nlink_t: [0-9]+\\s*uid_t: [0-9]+\\s*gid_t: [0-9]+\\s*dev_t: [0-9]+\\s*off_t: [0-9]+\\s*blksize_t: [0-9]+\\s*blkcnt_t: [0-9]+\\s*time_t: [0-9]+\\s*time_t: [0-9]+\\s*time_t: [0-9]+/",
       "args" : "data/1-22-result",
       "name" : "src/8-5"
    },
