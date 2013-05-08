@@ -1,7 +1,0 @@
-Adapt printd, writing a recursive itoa
-itoa(12345) = 12345, strlen 5
-itoa(1234) = 1234, strlen 4
-itoa(123) = 123, strlen 3
-itoa(12) = 12, strlen 2
-itoa(1) = 1, strlen 1
-itoa(1234567) = 1234567, strlen 7

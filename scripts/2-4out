@@ -1,5 +1,0 @@
-Write a function, squeeze(char *  srcString,char * subString) that deletes all occurences of each char in subString in srcString
-Original string: Start with a longish string
-Result after squeeze with s: Start with a longih tring
-Result after squeeze with h: Start wit a longi tring
-Result after squeeze with e: Start wit a longi tring

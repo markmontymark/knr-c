@@ -1,9 +1,0 @@
-Write setbits(int x,va_args....) that sets each bit flag pass in a varargs style
-bit a set, 1
-bit b set, 2
-bit c set, 4
-bit d set, 8
-bit a and b set, 3
-bit a and c set, 5
-bit a and d set, 9
-bit a, b, c set, 7

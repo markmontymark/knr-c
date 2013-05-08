@@ -1,7 +1,0 @@
-Write htoi which converts a char * of hex digits into an int number
-htoi 0x2f34b = 193355
-htoi 0x1234567 = 19088743
-htoi 0x2 = 2
-htoi 0x2a = 42
-htoi 0x2A = 42
-htoi 0X2A = 42

@@ -1,8 +1,0 @@
-Write strend (better called endsWith(str,substr)) that returns 1 if str ends with substr
-This is a sentence endsWith ence? yes,  passed
-This is a sentence endsWith wrong? no,  passed
-This is a sentence endsWith sentence? yes,  passed
- endsWith .? no,  passed
- endsWith ? yes,  passed
-(null) endsWith (null)? no,  passed
-a endsWith a? yes,  passed

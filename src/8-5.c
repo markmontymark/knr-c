@@ -14,7 +14,7 @@ void impl( );
 int main( int argc, char ** argv )
 {
 	printf("%s\n",USAGE);
-	while(argc--)
+	while(--argc > 0)
 		impl(*++argv);
 	return 0;
 }
