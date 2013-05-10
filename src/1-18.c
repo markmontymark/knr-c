@@ -3,6 +3,7 @@
 
 const char * USAGE = "Remove trailing whitespace (except newline) from input lines and delete blank lines";
 
+void impl( );
 int is_blank_line(char * line);
 char * remove_trailing_spaces(char * line);
 

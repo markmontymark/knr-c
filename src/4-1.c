@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 const char * USAGE = "Write a strrindex(s,t) function that return the last occurrence of t in s or -1 if not found (this can be compared to rindex?)";
 

@@ -1,13 +1,20 @@
-  
+ 
+#include "config.h"
+
+#define _POSIX_C_SOURCE 1
+
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
+
+char * strdup(char*);
 
 const char * USAGE = "Write a program, like rcfile, that changes behavior based on name of argv[0]";
 
 int main( int argc, char ** argv )
 {
 	printf("%s\n",USAGE);
-	char * fullprogname = strdup(*argv,"/");
+	char * fullprogname = strdup(*argv);
 	char * progname = rindex(fullprogname,'/');
 	if(progname != NULL)
 		progname++;

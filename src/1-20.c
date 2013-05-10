@@ -10,7 +10,7 @@ void impl( );
 int main( int argc, char ** argv )
 {
 	printf("%s\n",USAGE);
-	printf("Replaces tabs with %d spaces\n",strlen(SHIFTWIDTH));
+	printf("Replaces tabs with %lu spaces\n",(unsigned long)strlen(SHIFTWIDTH));
 	impl();
 	return 0;
 }

@@ -55,19 +55,19 @@ void impl( char * path )
 		"\ttime_t: %d\n"
 		"\ttime_t: %d\n",
 		path,
-		st.st_dev,
+		(int)st.st_dev,
 		(long)st.st_ino,
 		st.st_mode,
-		st.st_nlink,
+		(int)st.st_nlink,
 		st.st_uid,
 		st.st_gid,
-		st.st_rdev,
-		st.st_size,
-		st.st_blksize,
-		st.st_blocks,
-		st.st_atime,
-		st.st_mtime,
-		st.st_ctime
+		(int)st.st_rdev,
+		(int)st.st_size,
+		(int)st.st_blksize,
+		(int)st.st_blocks,
+		(int)st.st_atime,
+		(int)st.st_mtime,
+		(int)st.st_ctime
 	);
 	
 }

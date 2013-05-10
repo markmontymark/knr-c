@@ -18,27 +18,27 @@ void impl( )
 {
 	char * a[0];
 	itoa(a,12345);
-	printf("itoa(12345) = %s, strlen %d\n",*a,strlen(*a));
+	printf("itoa(12345) = %s, strlen %lu\n",*a,(unsigned long)strlen(*a));
 	free(*a);
 
 	itoa(a,1234);
-	printf("itoa(1234) = %s, strlen %d\n",*a,strlen(*a));
+	printf("itoa(1234) = %s, strlen %lu\n",*a,(unsigned long)strlen(*a));
 	free(*a);
 
 	itoa(a,123);
-	printf("itoa(123) = %s, strlen %d\n",*a,strlen(*a));
+	printf("itoa(123) = %s, strlen %lu\n",*a,(unsigned long)strlen(*a));
 	free(*a);
 
 	itoa(a,12);
-	printf("itoa(12) = %s, strlen %d\n",*a,strlen(*a));
+	printf("itoa(12) = %s, strlen %lu\n",*a,(unsigned long)strlen(*a));
 	free(*a);
 
 	itoa(a,1);
-	printf("itoa(1) = %s, strlen %d\n",*a,strlen(*a));
+	printf("itoa(1) = %s, strlen %lu\n",*a,(unsigned long)strlen(*a));
 	free(*a);
 
 	itoa(a,1234567);
-	printf("itoa(1234567) = %s, strlen %d\n",*a,strlen(*a));
+	printf("itoa(1234567) = %s, strlen %lu\n",*a,(unsigned long)strlen(*a));
 
 	free(*a);
 }

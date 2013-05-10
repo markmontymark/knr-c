@@ -1,3 +1,7 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+
 
 const char * USAGE = "Write escape(to,from) which converts newline to \n and tab to \t";
 

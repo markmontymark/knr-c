@@ -1,8 +1,12 @@
+#include "config.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "sorted_tree.h"
+
+char * strdup(char *);
 
 
 ordered_tree_str_t * ordered_tree_str_new(char * str)
