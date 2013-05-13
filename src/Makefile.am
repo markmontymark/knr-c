@@ -1,5 +1,6 @@
-bin_PROGRAMS = 1-16 1-17 1-18 1-1 1-20 1-21 1-22 1-23 1-23-fread 1-24 1-24-stack 1-3 1-4 2-1 2-3 2-4 2-6 3-2 3-3 4-10 4-12 4-1 4-2 4-3 4-4 4-5 4-6 4-7 4-8 4-9 5-13 5-17 5-3 5-4 5-7 5-9 6-1 6-3 6-3-w-hashtable 6-5 7-1 7-3 8-1 8-3 8-4 8-5 8-6 8-7 unicodes
+bin_PROGRAMS = 1-16 1-17 1-18 1-1 1-20 1-21 1-22 1-23 1-23-fread 1-24 1-24-stack 1-3 1-4 2-1 2-3 2-4 2-6 3-2 3-3 4-10 4-12 4-1 4-2 4-3 4-4 4-5 4-6 4-7 4-8 4-9 5-13 5-17 5-3 5-4 5-7 5-9 6-1 6-3 6-3-w-hashtable 6-5 7-1 7-3 8-1 8-3 8-4 8-5 8-6 8-7 unicodes test_arraylist_str
 AM_CFLAGS = -std=c99
+test_arraylist_str_SOURCES = arraylist_str.c test_arraylist_str.c
 unicodes_SOURCES = unicodes.c
 1_16_SOURCES = 1-16.c common.c common.h
 1_17_SOURCES = 1-17.c common.c common.h
@@ -34,7 +35,7 @@ unicodes_SOURCES = unicodes.c
 4_8_SOURCES = 4-8.c common.c common.h
 4_9_SOURCES = 4-9.c common.c common.h
 5_13_SOURCES = 5-13.c common.c common.h
-5_17_SOURCES = 5-17.c common.c common.h
+5_17_SOURCES = 5-17.c arraylist_str.c common.c common.h
 5_3_SOURCES = 5-3.c common.c common.h
 5_4_SOURCES = 5-4.c common.c common.h
 5_7_SOURCES = 5-7.c common.c common.h

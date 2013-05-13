@@ -61,7 +61,8 @@ bin_PROGRAMS = 1-16$(EXEEXT) 1-17$(EXEEXT) 1-18$(EXEEXT) 1-1$(EXEEXT) \
 	5-9$(EXEEXT) 6-1$(EXEEXT) 6-3$(EXEEXT) \
 	6-3-w-hashtable$(EXEEXT) 6-5$(EXEEXT) 7-1$(EXEEXT) \
 	7-3$(EXEEXT) 8-1$(EXEEXT) 8-3$(EXEEXT) 8-4$(EXEEXT) \
-	8-5$(EXEEXT) 8-6$(EXEEXT) 8-7$(EXEEXT) unicodes$(EXEEXT)
+	8-5$(EXEEXT) 8-6$(EXEEXT) 8-7$(EXEEXT) unicodes$(EXEEXT) \
+	test_arraylist_str$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -168,7 +169,8 @@ am_4_9_OBJECTS = 4-9.$(OBJEXT) common.$(OBJEXT)
 am_5_13_OBJECTS = 5-13.$(OBJEXT) common.$(OBJEXT)
 5_13_OBJECTS = $(am_5_13_OBJECTS)
 5_13_LDADD = $(LDADD)
-am_5_17_OBJECTS = 5-17.$(OBJEXT) common.$(OBJEXT)
+am_5_17_OBJECTS = 5-17.$(OBJEXT) arraylist_str.$(OBJEXT) \
+	common.$(OBJEXT)
 5_17_OBJECTS = $(am_5_17_OBJECTS)
 5_17_LDADD = $(LDADD)
 am_5_3_OBJECTS = 5-3.$(OBJEXT) common.$(OBJEXT)
@@ -220,6 +222,10 @@ am_8_6_OBJECTS = 8-6.$(OBJEXT) common.$(OBJEXT)
 am_8_7_OBJECTS = 8-7.$(OBJEXT) common.$(OBJEXT)
 8_7_OBJECTS = $(am_8_7_OBJECTS)
 8_7_LDADD = $(LDADD)
+am_test_arraylist_str_OBJECTS = arraylist_str.$(OBJEXT) \
+	test_arraylist_str.$(OBJEXT)
+test_arraylist_str_OBJECTS = $(am_test_arraylist_str_OBJECTS)
+test_arraylist_str_LDADD = $(LDADD)
 am_unicodes_OBJECTS = unicodes.$(OBJEXT)
 unicodes_OBJECTS = $(am_unicodes_OBJECTS)
 unicodes_LDADD = $(LDADD)
@@ -244,7 +250,8 @@ SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(6_1_SOURCES) $(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) \
 	$(6_5_SOURCES) $(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) \
 	$(8_3_SOURCES) $(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) \
-	$(8_7_SOURCES) $(unicodes_SOURCES)
+	$(8_7_SOURCES) $(test_arraylist_str_SOURCES) \
+	$(unicodes_SOURCES)
 DIST_SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(1_18_SOURCES) $(1_20_SOURCES) $(1_21_SOURCES) \
 	$(1_22_SOURCES) $(1_23_SOURCES) $(1_23_fread_SOURCES) \
@@ -258,7 +265,8 @@ DIST_SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(6_1_SOURCES) $(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) \
 	$(6_5_SOURCES) $(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) \
 	$(8_3_SOURCES) $(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) \
-	$(8_7_SOURCES) $(unicodes_SOURCES)
+	$(8_7_SOURCES) $(test_arraylist_str_SOURCES) \
+	$(unicodes_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -351,6 +359,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CFLAGS = -std=c99
+test_arraylist_str_SOURCES = arraylist_str.c test_arraylist_str.c
 unicodes_SOURCES = unicodes.c
 1_16_SOURCES = 1-16.c common.c common.h
 1_17_SOURCES = 1-17.c common.c common.h
@@ -385,7 +394,7 @@ unicodes_SOURCES = unicodes.c
 4_8_SOURCES = 4-8.c common.c common.h
 4_9_SOURCES = 4-9.c common.c common.h
 5_13_SOURCES = 5-13.c common.c common.h
-5_17_SOURCES = 5-17.c common.c common.h
+5_17_SOURCES = 5-17.c arraylist_str.c common.c common.h
 5_3_SOURCES = 5-3.c common.c common.h
 5_4_SOURCES = 5-4.c common.c common.h
 5_7_SOURCES = 5-7.c common.c common.h
@@ -620,6 +629,9 @@ clean-binPROGRAMS:
 8-7$(EXEEXT): $(8_7_OBJECTS) $(8_7_DEPENDENCIES) $(EXTRA_8_7_DEPENDENCIES) 
 	@rm -f 8-7$(EXEEXT)
 	$(LINK) $(8_7_OBJECTS) $(8_7_LDADD) $(LIBS)
+test_arraylist_str$(EXEEXT): $(test_arraylist_str_OBJECTS) $(test_arraylist_str_DEPENDENCIES) $(EXTRA_test_arraylist_str_DEPENDENCIES) 
+	@rm -f test_arraylist_str$(EXEEXT)
+	$(LINK) $(test_arraylist_str_OBJECTS) $(test_arraylist_str_LDADD) $(LIBS)
 unicodes$(EXEEXT): $(unicodes_OBJECTS) $(unicodes_DEPENDENCIES) $(EXTRA_unicodes_DEPENDENCIES) 
 	@rm -f unicodes$(EXEEXT)
 	$(LINK) $(unicodes_OBJECTS) $(unicodes_LDADD) $(LIBS)
@@ -678,10 +690,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-5.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-6.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-7.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arraylist_str.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/char_stack.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/common.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hashtable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sorted_tree.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_arraylist_str.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unicodes.Po@am__quote@
 
 .c.o:

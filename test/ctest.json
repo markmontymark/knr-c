@@ -269,5 +269,11 @@
       "expected" : "123 C == 253.4000 F\n123 F == 50.5556 C",
       "args" : "123",
       "name" : "src/1-3"
-   }
+   },
+	
+	"test_arraylist_str"  : {
+		"bin" : "src/test_arraylist_str",
+		"name" : "src/test_arraylist_str",
+		"expected" : "list size: 5\nlist[0]: wowee blah blah\nlist[1]: zowee\nlist[2]: on\nlist[3]: the longest entry in the list\nlist[4]: t\n"
+	}
 }
