@@ -186,8 +186,9 @@
    },
    "6-5" : {
       "bin" : "src/6-5",
-      "expected" : "Write a function, undef that removes entries from lookup table",
-      "name" : "src/6-5"
+      "expected" : "Write a function, undef that removes entries from lookup table\nOriginal list of words\nkey: asdff, val: 1\nkey: adsff, val: 1\nkey: qewvvvr, val: 1\nkey: gfdsfdasdfa, val: 1\nkey: asdfzxcvdsafd, val: 1\nkey: qewr, val: 5\nkey: rewq, val: 1\nkey: qewaaaar, val: 2\nMost popular word(s) found\nqewr\nshould delete qewr\nList of words after removing most popular word(s)\nkey: asdff, val: 1\nkey: adsff, val: 1\nkey: qewvvvr, val: 1\nkey: gfdsfdasdfa, val: 1\nkey: asdfzxcvdsafd, val: 1\nkey: rewq, val: 1\nkey: qewaaaar, val: 2\n",
+      "name" : "src/6-5",
+		"args" : "data/6-2"
    },
    "3-3" : {
       "bin" : "src/3-3",
