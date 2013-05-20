@@ -225,8 +225,9 @@
    },
    "8-1" : {
       "bin" : "src/8-1",
-      "expected" : "Rewrite cat with read/write/open/close instead of standard library equivalents. Which is faster, my own cat or the real cat?",
-      "name" : "src/8-1"
+      "expected" : "Rewrite cat with read/write/open/close instead of standard library equivalents. Which is faster, my own cat or the real cat?\none space\ntwo  spaces\nthree   spaces\nfour    spaces\nfive     spaces\nsix      spaces\n",
+      "name" : "src/8-1",
+		"args" : "data/1-21"
    },
    "1-16" : {
       "bin" : "src/1-16",
