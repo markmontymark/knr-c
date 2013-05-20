@@ -20,7 +20,7 @@ sub whats_not_done
 	my($cfg) = shift;
 	for( sort keys %$cfg )
 	{
-		print "$_\n" unless 
+		print "$_\n\t$cfg->{$_}->{expected}\n" unless 
 			(exists $cfg->{$_}->{expected}  && $cfg->{$_}->{expected} =~ /\n/mg ) ||
 			(exists $cfg->{$_}->{regex_expected}  && $cfg->{$_}->{regex_expected} =~ /(?:\\s|\n)/mg );
 	}	

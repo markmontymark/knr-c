@@ -60,8 +60,9 @@
    },
    "5-9" : {
       "bin" : "src/5-9",
-      "expected" : "Rewrite day_of_year and month_day with pointers instead of indexing",
-      "name" : "src/5-9"
+      "expected" : "Rewrite day_of_year and month_day with pointers instead of indexing\norig month_day of 1984 365 is 1984-12-30\n",
+      "name" : "src/5-9",
+		"args" : "month_day 1984 365"
    },
    "5-7" : {
       "bin" : "src/5-7",
