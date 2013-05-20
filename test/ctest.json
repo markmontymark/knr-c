@@ -58,12 +58,32 @@
       "args" : " < data/4-3",
       "name" : "src/4-3"
    },
-   "5-9" : {
-      "bin" : "src/5-9",
-      "expected" : "Rewrite day_of_year and month_day with pointers instead of indexing\norig month_day of 1984 365 is 1984-12-30\n",
-      "name" : "src/5-9",
-		"args" : "month_day 1984 365"
-   },
+   "5-9" : [
+		{
+			"bin" : "src/5-9",
+			"expected" : "Rewrite day_of_year and month_day with pointers instead of indexing\norig month_day of 1984 365 is 1984-12-30\n",
+			"name" : "src/5-9",
+			"args" : "orig_month_day 1984 365"
+		},
+		{
+			"bin" : "src/5-9",
+			"expected" : "Rewrite day_of_year and month_day with pointers instead of indexing\nmonth_day of 1984 365 is 1984-12-30\n",
+			"name" : "src/5-9",
+			"args" : "month_day 1984 365"
+		},
+		{
+			"bin" : "src/5-9",
+			"expected" : "Rewrite day_of_year and month_day with pointers instead of indexing\norig day_of_year 1984-12-02 is 337\n",
+			"name" : "src/5-9",
+			"args" : "orig_day_of_year 1984 12 2"
+		},
+		{
+			"bin" : "src/5-9",
+			"expected" : "Rewrite day_of_year and month_day with pointers instead of indexing\nday_of_year 1984-12-02 is 337\n",
+			"name" : "src/5-9",
+			"args" : "day_of_year 1984 12 2"
+		}
+	],
    "5-7" : {
       "bin" : "src/5-7",
       "expected" : "Rewrite readlines() to store lines provided by main() rather than calling alloc. Benchmark the difference..which is better?",
