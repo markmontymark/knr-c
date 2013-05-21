@@ -86,8 +86,9 @@
 	],
    "5-7" : {
       "bin" : "src/5-7",
-      "expected" : "Rewrite readlines() to store lines provided by main() rather than calling alloc. Benchmark the difference..which is better?",
-      "name" : "src/5-7"
+      "expected" : "Rewrite readlines() to store lines provided by main() rather than calling alloc. Benchmark the difference..which is better?\nRead 28 lines",
+      "name" : "src/5-7",
+		"args" : "< data/1-22-result"
    },
    "4-2" : {
       "bin" : "src/4-2",
