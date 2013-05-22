@@ -1,14 +1,14 @@
 
 #include "common.h"
+#define MAXSTKSIZE 1000
 
-const char * USAGE = "Write a calculator program, hello TI-80!!";
+const char * USAGE = "Write a calculator program.";
 
-typedef char * stk;
-void stk_init(stk s);
-void stk_free(stk s);
-void stk_push(stk s,char c);
-char stk_pop (stk s);
-void stk_dump(stk s,FILE * out);
+int CURSTKSIZE;
+
+void stk_push(char *s,int n);
+char stk_pop (char *s);
+void stk_dump(char *s,FILE * out);
 
 void impl( );
 
@@ -21,41 +21,41 @@ int main( int argc, char ** argv )
 	return 0;
 }
 
-void stk_init(stk s)
+int stk_is_empty(char * s)
 {
-	*s = '\0';
+	return CURSTKSIZE < 2;
 }
 
-void stk_free(stk s)
+void stk_push(char * s,int c)
 {
-	free(s);
+	if( CURSTKSIZE + 1 >= MAXSTKSIZE)
+	{
+		printf("[stk_push] Stack full (%d items), can't push %c\n",MAXSTKSIZE, c);
+		return;
+	}
+	s[CURSTKSIZE] = c;
+	CURSTKSIZE++;
+	s[CURSTKSIZE] = '\0';
 }
 
-void stk_push(stk s,char c)
+char stk_pop(char *s)
 {
-	printf("pre push %p, %c\n",s,c);
-	*++s = c;
-	printf("post push %p, %c\n",s,c);
-}
-
-char stk_pop(stk s)
-{
-	char c = *s;
-	*--s;
+	if( stk_is_empty( s ) )
+	{
+		printf("[stk_pop] Stack empty, can't pop\n");
+		return -1;
+	}
+	CURSTKSIZE--;
+	char c = s[CURSTKSIZE];
+	s[CURSTKSIZE] = '\0';
 	return c;
 }
 
-int stk_is_empty(stk s)
+void stk_dump(char *s,FILE * out)
 {
-	return *s == '\0';
-}
-
-void stk_dump(stk s,FILE * out)
-{
+	fprintf(out,"stk_dump:\n" );
 	while( ! stk_is_empty(s) )
-	{
-		fprintf(out,"stk_dump: %c\n", stk_pop(s) );
-	}
+		fprintf(out,"%d\n", stk_pop(s) );
 }
 
 int calc_op(char op,int lhs,int rhs)
@@ -63,12 +63,12 @@ int calc_op(char op,int lhs,int rhs)
 	int retval;
 	switch(op)
 	{
+		case '%': retval = lhs % rhs; break;
 		case '+': retval = lhs + rhs; break;
 		case '-': retval = lhs - rhs; break;
 		case '*': retval = lhs * rhs; break;
 		case '/': retval = lhs / rhs; break;
 	}
-	printf("%d %c %d = %d\n",lhs,op,rhs,retval);
 	return retval;
 }
 
@@ -76,8 +76,9 @@ int calc_op(char op,int lhs,int rhs)
 void impl( )
 {
 	
-	stk k = malloc(1024 * sizeof(char));
-	stk_init(k);
+	char k[MAXSTKSIZE];
+	CURSTKSIZE = 0;
+	stk_push(k,'\0');
 
 	char cur;
 	char lhs;
@@ -89,32 +90,43 @@ void impl( )
 	{
 		if(isdigit(cur))
 		{
-			stk_push(k,cur);
+			stk_push(k,cur - '0');
 			continue;
 		}
 
 		switch(cur)
 		{
 			// handle operators
+			case '%': 
 			case '+': 
 			case '-': 
 			case '*': 
 			case '/':
+				//printf("got op, %c\n",cur);
 				if(! stk_is_empty(k)	)
-					lhs = stk_pop(k);
+					if( (lhs = stk_pop(k)) == -1 )
+					{
+						printf("Bad lhs pop\n");
+						return;
+					}
 				if(! stk_is_empty(k)	)
 				{
-					rhs = stk_pop(k);
-					stk_push(k, calc_op(cur, lhs - '0' , rhs - '0' ));
+					if( (rhs = stk_pop(k)) == -1 )
+					{
+						printf("Bad rhs pop\n");
+						return;
+					}
+					fprintf(stdout, "lhs %d, rhs %d, op %c\n",lhs,rhs,cur);
+					stk_push(k, calc_op(cur, lhs, rhs));
 				}
 				else 
 				{
 					stk_push(k,lhs);
 					stk_push(k,cur);
 				}
+				break;
 		}
 	}
 	stk_dump(k,stdout);
-	stk_free(k);
 }
 

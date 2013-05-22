@@ -53,7 +53,7 @@
       "name" : "src/5-3"
    },
    "4-3" : {
-      "regex_expected" : "/Write a calculator program, hello TI-80!!\npre push 0x[0-9A-Za-z]+, 1\npost push 0x[0-9A-Za-z]+, 1\npre push 0x[0-9A-Za-z]+, \u0000\npost push 0x[0-9A-Za-z]+, \u0000\npre push 0x[0-9A-Za-z]+, [+]\npost push 0x[0-9A-Za-z]+, [+]\npre push 0x[0-9A-Za-z]+, 2\npost push 0x[0-9A-Za-z]+, 2\npre push 0x[0-9A-Za-z]+, \u0000\npost push 0x[0-9A-Za-z]+, \u0000\npre push 0x[0-9A-Za-z]+, [-]\npost push 0x[0-9A-Za-z]+, [-]\npre push 0x[0-9A-Za-z]+, 3\npost push 0x[0-9A-Za-z]+, 3/",
+      "expected" : "Write a calculator program.\nlhs 2, rhs 1, op +\nlhs 2, rhs 3, op -\nstk_dump:\n-1\n",
       "bin" : "src/4-3",
       "args" : " < data/4-3",
       "name" : "src/4-3"
