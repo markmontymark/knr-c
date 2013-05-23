@@ -3,3 +3,4 @@ Makefile
 stamp-h1
 src/*
 !src/*.c
+!src/*.h

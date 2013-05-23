@@ -145,7 +145,8 @@ am_4_12_OBJECTS = 4-12.$(OBJEXT) common.$(OBJEXT)
 am_4_2_OBJECTS = 4-2.$(OBJEXT) common.$(OBJEXT)
 4_2_OBJECTS = $(am_4_2_OBJECTS)
 4_2_DEPENDENCIES =
-am_4_3_OBJECTS = 4-3.$(OBJEXT) common.$(OBJEXT)
+am_4_3_OBJECTS = 4-3.$(OBJEXT) common.$(OBJEXT) \
+	arraylist_int.$(OBJEXT) stack.$(OBJEXT)
 4_3_OBJECTS = $(am_4_3_OBJECTS)
 4_3_LDADD = $(LDADD)
 am_4_4_OBJECTS = 4-4.$(OBJEXT) common.$(OBJEXT)
@@ -387,7 +388,7 @@ unicodes_SOURCES = unicodes.c
 4_1_SOURCES = 4-1.c common.c common.h
 4_2_SOURCES = 4-2.c common.c common.h
 4_2_LDADD = -lm
-4_3_SOURCES = 4-3.c common.c common.h
+4_3_SOURCES = 4-3.c common.c common.h arraylist_int.c arraylist_int.h stack.c stack.h
 4_4_SOURCES = 4-4.c common.c common.h
 4_5_SOURCES = 4-5.c common.c common.h
 4_6_SOURCES = 4-6.c common.c common.h
@@ -691,11 +692,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-5.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-6.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-7.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arraylist_int.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arraylist_str.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/char_stack.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/common.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hashtable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sorted_tree.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stack.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_arraylist_str.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unicodes.Po@am__quote@
 
