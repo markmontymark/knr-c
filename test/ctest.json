@@ -147,12 +147,14 @@
    },
    "4-9" : {
       "bin" : "src/4-9",
-      "expected" : "Write a calculator program, Our getch/ungetch don't handle pushing EOF back",
+      "expected" : "Write a calculator program, Our getch/ungetch doesn't handle pushing EOF back",
       "name" : "src/4-9"
    },
    "unicodes" : {
       "bin" : "src/unicodes",
-      "expected" : "This is char: \u00ce\u00a9 \nThis is char: \u00e2\u0084\u00a6 \nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \n",
+      "rrexpected" : "This is char: \u00ce\u00a9 \nThis is char: \u00e2\u0084\u00a6 \nChars are equal: Yes\nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \nLong strings are equal: Yes\n",
+      "expected" : "This is char: \u00ce\u00a9 \nThis is char: \u00ce\u00a9 \nChars are equal: Yes\nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \nThis is a long string: \u00e2\u0099\u00a0\u00e2\u0099\u00a3\u00e2\u0099\u00a5\u00e2\u0099\u00a6 \nLong strings are equal: Yes\n",
+
       "name" : "src/unicodes"
    },
    "3-2" : {
