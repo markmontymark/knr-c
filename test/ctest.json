@@ -1,8 +1,9 @@
 {
    "4-5" : {
       "bin" : "src/4-5",
-      "expected" : "Write a calculator program, add access to Math library functions, sin, exp and pow",
-      "name" : "src/4-5"
+      "expected" : "Write a calculator program, add access to Math library functions, sin, exp and pow\nexp of 2 is 7.389056\nsin of 7 is 0.656987\nTop element is 0\nstk_dump:\n10\n0\nTop element is 10\nlhs 10, rhs 0, op -\nlhs 10, rhs 3, op +\nstk_dump:\n13\n",
+      "name" : "src/4-5",
+		"args" : "< data/4-5"
    },
    "1-22" : {
       "bin" : "src/1-22",

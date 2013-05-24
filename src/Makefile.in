@@ -153,9 +153,10 @@ am_4_4_OBJECTS = 4-4.$(OBJEXT) common.$(OBJEXT) \
 	arraylist_int.$(OBJEXT) stack.$(OBJEXT)
 4_4_OBJECTS = $(am_4_4_OBJECTS)
 4_4_DEPENDENCIES =
-am_4_5_OBJECTS = 4-5.$(OBJEXT) common.$(OBJEXT)
+am_4_5_OBJECTS = 4-5.$(OBJEXT) common.$(OBJEXT) \
+	arraylist_int.$(OBJEXT) stack.$(OBJEXT)
 4_5_OBJECTS = $(am_4_5_OBJECTS)
-4_5_LDADD = $(LDADD)
+4_5_DEPENDENCIES =
 am_4_6_OBJECTS = 4-6.$(OBJEXT) common.$(OBJEXT)
 4_6_OBJECTS = $(am_4_6_OBJECTS)
 4_6_LDADD = $(LDADD)
@@ -393,7 +394,8 @@ unicodes_SOURCES = unicodes.c
 4_3_LDADD = -lm
 4_4_SOURCES = 4-4.c common.c common.h arraylist_int.c arraylist_int.h stack.c stack.h
 4_4_LDADD = -lm
-4_5_SOURCES = 4-5.c common.c common.h
+4_5_SOURCES = 4-5.c common.c common.h arraylist_int.c arraylist_int.h stack.c stack.h
+4_5_LDADD = -lm
 4_6_SOURCES = 4-6.c common.c common.h
 4_7_SOURCES = 4-7.c common.c common.h
 4_8_SOURCES = 4-8.c common.c common.h
