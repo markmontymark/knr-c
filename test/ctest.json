@@ -53,7 +53,7 @@
       "name" : "src/5-3"
    },
    "4-3" : {
-      "expected" : "Write a calculator program.\nlhs 2, rhs 1, op +\nlhs 2, rhs 3, op -\nstk_dump:\n-1\n",
+      "expected" : "Write a calculator program.\nlhs 34, rhs 12, op +\nlhs 2, rhs 46, op -\nstk_dump:\n-44\n",
       "bin" : "src/4-3",
       "args" : " < data/4-3",
       "name" : "src/4-3"
@@ -264,8 +264,9 @@
    },
    "4-4" : {
       "bin" : "src/4-4",
-      "expected" : "Write a calculator program, add commands to print the top stack element without popping, duplicate the top element, and to swap the top two elements.  Add a command to clear the stack",
-      "name" : "src/4-4"
+      "expected" : "Write a calculator program, add commands to print the top stack element without popping, duplicate the top element, and to swap the top two elements.  Add a command to clear the stack\nTop element is 23\nstk_dump:\n12\nTop element is 12\nlhs 12, rhs 23, op -\nstk_dump:\n-11\n",
+      "name" : "src/4-4",
+		"args" : "< data/4-4"
    },
    "1-4" : {
       "bin" : "src/1-4",

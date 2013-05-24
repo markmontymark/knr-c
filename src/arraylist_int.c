@@ -54,6 +54,16 @@ int arraylist_int_get(arraylist_int_t * list, int index)
 	return 0;
 }
 
+void arraylist_int_set(arraylist_int_t * list, int index, int value) 
+{
+	if(index > list->size)
+	{
+		fprintf(stderr,"Error trying to set value %d at invalid index %d\n", value,index);
+		return;
+	}
+	*(list->data[index]) = value;
+}
+
 int arraylist_int_indexof(arraylist_int_t * list, int value) 
 {
 	int sz = arraylist_int_size( list );

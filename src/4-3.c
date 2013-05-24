@@ -1,10 +1,12 @@
 
 #include "common.h"
-#define MAXSTKSIZE 1000
 
 #include "stack.h"
+#include <math.h>
+
 
 const char * USAGE = "Write a calculator program.";
+#define MAXDIGITS 10
 
 void impl( );
 
@@ -40,6 +42,7 @@ void impl( )
 	char cur;
 	int lhs;
 	int rhs;
+	int val;
 
 	int total = 0;
 
@@ -47,8 +50,15 @@ void impl( )
 	{
 		if(isdigit(cur))
 		{
-			stk_push(k, cur - '0');
-			continue;
+			int digits[MAXDIGITS];
+			int n_digits = 0;
+			digits[ n_digits++ ] = cur - '0';
+			while( (cur = fgetc(stdin)) != EOF && isdigit(cur) && n_digits < MAXDIGITS)
+				digits[ n_digits++ ] = cur - '0';
+			int val =  0;
+			for(int i =  0, j = n_digits - 1; i < n_digits; i ++, j-- )
+				val += digits[i] * pow(10, j);
+			stk_push(k, val);
 		}
 
 		switch(cur)
@@ -83,6 +93,7 @@ void impl( )
 				}
 				break;
 		}
+	
 	}
 	stk_dump(k,stdout);
 	stk_free(k);

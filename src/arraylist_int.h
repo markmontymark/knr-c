@@ -14,6 +14,7 @@ arraylist_int_t * arraylist_int_new();
 //public api
 int 		arraylist_int_size(		arraylist_int_t * list);
 int 		arraylist_int_get(		arraylist_int_t * list, int index);
+void 		arraylist_int_set(		arraylist_int_t * list, int index, int value);
 void 		arraylist_int_add(		arraylist_int_t * list, int value);
 int  		arraylist_int_indexof(	arraylist_int_t * list, int value);
 void		arraylist_int_free(		arraylist_int_t * list);

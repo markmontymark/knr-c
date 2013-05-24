@@ -17,6 +17,9 @@ int		stk_is_empty(stk_t *);
 void 		stk_push(stk_t *,int );
 int 		stk_pop (stk_t *);
 void 		stk_dump(stk_t *,FILE * out);
+void 		stk_print(stk_t *,FILE * out);
 void 		stk_free(stk_t *);
+int 		stk_get_top(stk_t *);
+void		stk_swap(stk_t *, int, int);
 
 #endif
