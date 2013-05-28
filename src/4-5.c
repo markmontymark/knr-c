@@ -1,5 +1,4 @@
- 
-#include "common.h"
+ #include "common.h"
 #include "stack.h"
 #include <math.h>
 
@@ -11,6 +10,7 @@ void impl( );
 int calc_op(char op,int lhs,int rhs);
 void calc_print_top(stk_t *, FILE *);
 void calc_swap_top(stk_t *);
+void calc_clear(stk_t *);
 
 int main( int argc, char ** argv )
 {
@@ -39,6 +39,16 @@ void calc_swap_top(stk_t * s)
 	stk_swap( s, 0, 1 );
 	stk_print( s , stdout);
 }
+
+void calc_clear(stk_t * s)
+{
+	if( s == NULL )
+		return;
+	while( ! stk_is_empty(s) )
+		stk_pop(s);
+}
+
+
 
 int calc_op(char op,int lhs,int rhs)
 {
@@ -98,7 +108,10 @@ void impl( )
 					stk_push(k, exp((double)lhs));
 				}
 				break;
-			case 'i': 
+			// sine
+			case '~': 
+			// cosine
+			case '`': 
 				if(! stk_is_empty(k)	)
 				{
 					if( (lhs = stk_pop(k)) == -1 )
@@ -106,8 +119,8 @@ void impl( )
 						printf("Bad lhs pop\n");
 						return;
 					}
-					printf("sin of %d is %f\n", lhs, sin(lhs));
-					stk_push(k, sin((double)lhs));
+					printf("%s of %d is %f\n", cur == '~' ? "sine" : "cosine", lhs, sin(lhs));
+					stk_push(k, cur == '~' ? (sin((double)lhs)) : (cos((double)lhs)) );
 				}
 				break;
 		
@@ -145,10 +158,17 @@ void impl( )
 				break;
 
 			// stack operators
+			// _  = clear stack
+			case '_': 
+				calc_clear(k); 
+				break;
+
+			// print top stack element
 			case 'p': 
 				calc_print_top(k,stdout); 
 				break;
 
+			// swap two top stack elements
 			case 's': 
 				calc_swap_top(k); 
 				break;

@@ -11,6 +11,7 @@ void impl( );
 int calc_op(char op,int lhs,int rhs);
 void calc_print_top(stk_t *, FILE *);
 void calc_swap_top(stk_t *);
+void calc_clear(stk_t *);
 
 int main( int argc, char ** argv )
 {
@@ -38,6 +39,14 @@ void calc_swap_top(stk_t * s)
 	}
 	stk_swap( s, 0, 1 );
 	stk_print( s , stdout);
+}
+
+void calc_clear(stk_t * s)
+{
+	if( s == NULL)
+		return;
+	while( ! stk_is_empty(s) )
+		stk_pop(s);
 }
 
 int calc_op(char op,int lhs,int rhs)
@@ -114,11 +123,15 @@ void impl( )
 				}
 				break;
 
-			case 'p': 
+			// clear stack with _ underscore
+			case '_': 
+				calc_clear(k); 
+				break;
+			case '.': 
 				calc_print_top(k,stdout); 
 				break;
 
-			case 's': 
+			case '>': 
 				calc_swap_top(k); 
 				break;
 		}

@@ -1,10 +1,12 @@
 {
    "4-5" : {
       "bin" : "src/4-5",
-      "expected" : "Write a calculator program, add access to Math library functions, sin, exp and pow\nexp of 2 is 7.389056\nsin of 7 is 0.656987\nTop element is 0\nstk_dump:\n10\n0\nTop element is 10\nlhs 10, rhs 0, op -\nlhs 10, rhs 3, op +\nstk_dump:\n13\n",
+      "expected" : "Write a calculator program, add access to Math library functions, sin, exp and pow\nlhs 2, rhs 10, op ^\nsine of 1024 is -0.158533\ncosine of 0 is 0.000000\nlhs 1, rhs 3, op -\nstk_dump:\n43\n-2\n",
       "name" : "src/4-5",
 		"args" : "< data/4-5"
+
    },
+
    "1-22" : {
       "bin" : "src/1-22",
       "expected" : "fold long input lines into two or more shorter lines with max length of 80 chars\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n1234567890abcdefghij1234567890abcdefghij\t\t\nshort\tline\n\nblank\tline\twas\tbefore\t\t\nbreak\tlines\tat\tsomewhere\tsomewhere\tsomewhere\tsomewhere\tsomewhere\taround\there\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij1234567890abcdefgh\nij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefgh\nij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdef\nghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij1234567890abcd\nefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcd\nefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890ab\ncdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij1234567890\nabcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890\nabcdefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij12345678\n90abcdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij123456\n7890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij123456\n7890abcdefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234\n567890abcdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefghij12\n34567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij12\n34567890abcdefghij\t\t1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\n1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij\t\t1234567890abcdefgh\nij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefgh\nij1234567890abcdefghij\t\t\n",
@@ -21,11 +23,24 @@
       "expected" : "Write htoi which converts a char * of hex digits into an int number\nhtoi 0x2f34b = 193355\nhtoi 0x1234567 = 19088743\nhtoi 0x2 = 2\nhtoi 0x2a = 42\nhtoi 0x2A = 42\nhtoi 0X2A = 42\n",
       "name" : "src/2-3"
    },
-   "4-6" : {
-      "bin" : "src/4-6",
-      "expected" : "Write a calculator program, add cmds for creating, retrieving variables.",
-      "name" : "src/4-6"
-   },
+   "4-6" : [
+		{
+			"bin" : "src/4-6",
+			"expected" : "Write a calculator program. Add commands for handling variables.   Add a variable for the most recently printed value.\nlhs 23, rhs 12, op +\nTop element is 35.000000\nlhs 1, rhs 35, op -\nstk_dump:\n-34\n",
+			"name" : "src/4-6",
+			"args" : "< data/4-6"
+		},
+		{
+			"bin" : "src/4-6",
+			"expected" : "Write a calculator program. Add commands for handling variables.   Add a variable for the most recently printed value.\nlhs 23, rhs 12, op +\nlhs 5, rhs 4, op +\nlhs 9, rhs 35, op -\nTop element is -26.000000\nstk_dump:\n-26\n9\n35\n",
+			"name" : "src/4-6",
+			"args" : "< data/4-6-set-get"
+		}
+	],
+
+
+
+
    "5-13" : {
       "bin" : "src/5-13",
       "expected" : "Write tail(int n) to print last n lines...also how about allowing for tail -f ?",
@@ -265,12 +280,22 @@
       "expected" : "hello, world\r\n",
       "name" : "src/1-1"
    },
-   "4-4" : {
-      "bin" : "src/4-4",
-      "expected" : "Write a calculator program, add commands to print the top stack element without popping, duplicate the top element, and to swap the top two elements.  Add a command to clear the stack\nTop element is 23\nstk_dump:\n12\nTop element is 12\nlhs 12, rhs 23, op -\nstk_dump:\n-11\n",
-      "name" : "src/4-4",
-		"args" : "< data/4-4"
-   },
+   "4-4" : [
+		{
+			"bin" : "src/4-4",
+			"expected" : "Write a calculator program, add commands to print the top stack element without popping, duplicate the top element, and to swap the top two elements.  Add a command to clear the stack\nTop element is 23\nstk_dump:\n12\nTop element is 12\nlhs 12, rhs 23, op -\nstk_dump:\n-11\n",
+			"name" : "src/4-4",
+			"args" : "< data/4-4"
+		},
+		{
+			"bin" : "src/4-4",
+			"expected" : "Write a calculator program, add commands to print the top stack element without popping, duplicate the top element, and to swap the top two elements.  Add a command to clear the stack\nTop element is 23\nstk_dump:\n12\nTop element is 12\nlhs 12, rhs 23, op -\nlhs 1, rhs 5, op +\nlhs 95, rhs 6, op *\nstk_dump:\n45\n570\n",
+			"name" : "src/4-4",
+			"args" : "< data/4-4-w-clear"
+		}
+	],
+
+
    "1-4" : {
       "bin" : "src/1-4",
       "expected" : "Write Celsius to Farenheit\n100.00 C = 212.00 F",

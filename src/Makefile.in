@@ -157,9 +157,11 @@ am_4_5_OBJECTS = 4-5.$(OBJEXT) common.$(OBJEXT) \
 	arraylist_int.$(OBJEXT) stack.$(OBJEXT)
 4_5_OBJECTS = $(am_4_5_OBJECTS)
 4_5_DEPENDENCIES =
-am_4_6_OBJECTS = 4-6.$(OBJEXT) common.$(OBJEXT)
+am_4_6_OBJECTS = 4-6.$(OBJEXT) common.$(OBJEXT) \
+	arraylist_double.$(OBJEXT) arraylist_int.$(OBJEXT) \
+	stack.$(OBJEXT)
 4_6_OBJECTS = $(am_4_6_OBJECTS)
-4_6_LDADD = $(LDADD)
+4_6_DEPENDENCIES =
 am_4_7_OBJECTS = 4-7.$(OBJEXT) common.$(OBJEXT)
 4_7_OBJECTS = $(am_4_7_OBJECTS)
 4_7_LDADD = $(LDADD)
@@ -396,7 +398,8 @@ unicodes_SOURCES = unicodes.c
 4_4_LDADD = -lm
 4_5_SOURCES = 4-5.c common.c common.h arraylist_int.c arraylist_int.h stack.c stack.h
 4_5_LDADD = -lm
-4_6_SOURCES = 4-6.c common.c common.h
+4_6_SOURCES = 4-6.c common.c common.h arraylist_double.c arraylist_double.h arraylist_int.c arraylist_int.h stack.c stack.h
+4_6_LDADD = -lm
 4_7_SOURCES = 4-7.c common.c common.h
 4_8_SOURCES = 4-8.c common.c common.h
 4_9_SOURCES = 4-9.c common.c common.h
@@ -697,6 +700,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-5.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-6.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/8-7.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arraylist_double.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arraylist_int.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arraylist_str.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/char_stack.Po@am__quote@
