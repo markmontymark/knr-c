@@ -12,6 +12,9 @@ const char * USAGE = "fseek is identical to lseek, except that fseek takes a fil
 
 void impl( );
 
+#undef fseek
+int fseek( FILE * fp, long offset, int origin);
+
 int main( int argc, char ** argv )
 {
 	printf("%s\n",USAGE);

@@ -135,7 +135,8 @@
    },
    "8-3" : {
       "bin" : "src/8-3",
-      "expected" : "Design and write _flushbuf(), fflush(), fclose()",
+      "rrregex_expected" : "/Design and write _flushbuf[)(], fflush[)(], fclose[)(]\n(?:\\s*Hello World\\s*)+/",
+      "regex_expected" : "/(?:\\s*Hello World\\s*){1025}/",
       "name" : "src/8-3"
    },
    "4-8" : {
