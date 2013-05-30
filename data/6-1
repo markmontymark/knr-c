@@ -1,0 +1,28 @@
+abc
+a123
+123
+abc def
+a b c 
+ bdef 
+
+bdefghij k
+
+
+/**/ 
+/*first comment*/ 
+/* second comment*/ 
+/* third comment */ 
+/*fourth comment */ 
+/*fifth comment
+*/
+before_comment_1 /* */
+before_comment_2//
+/* */after_comment_1
+/* */ after_comment_2
+before/* */after
+// 
+//asdfdsa
+// fasdfsadfas //
+//
+
+

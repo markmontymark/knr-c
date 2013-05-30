@@ -200,8 +200,9 @@
    },
    "6-1" : {
       "bin" : "src/6-1",
-      "expected" : "Update getword to handle underscores, string constants, comments, preprocessor control lines",
-      "name" : "src/6-1"
+      "expected" : "Update getword to handle underscores, string constants, comments, preprocessor control lines\ngot word: abc\ngot word: a123\ngot word: 1\ngot word: 2\ngot word: 3\ngot word: abc\ngot word: def\ngot word: a\ngot word: b\ngot word: c\ngot word: bdef\ngot word: bdefghij\ngot word: k\ngot word: before_comment_1\ngot word: before_comment_2\ngot word: after_comment_1\ngot word: after_comment_2\ngot word: before\ngot word: after\n",
+      "name" : "src/6-1",
+		"args" : "< data/6-1"
    },
    "fdsa" : {
       "bin" : "src/fdsa",
@@ -243,7 +244,7 @@
    },
    "7-3" : {
       "bin" : "src/7-3",
-      "expected" : "Write my own printf that handles %<letter> replacements for user-defined objects",
+      "regex_expected" : "/^Revise minprintf to handle more of the other facilities of printf\nThis is an int 10\nThis is an double 10.000000\nThis is a string 10\nThis is a literal % followed by a char [*] of % and a char 37\nThis is a long int 1234567891011121314\nThis is a long long int 1234567891011121314\nThis is a pointer not initialized [(]nil[)]\nThis is a pointer initialized 0x[0-9A-Za-z]+/",
       "name" : "src/7-3"
    },
    "1-24-stack" : {
