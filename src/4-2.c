@@ -57,9 +57,7 @@ int main( int argc, char ** argv )
 
 	char * str = malloc( 80 );
 	for(int i = 0; i < 7; i++)
-	{
 		for(int j = 0; j < /*6*/6; j++)
-		{
 			for(int k = 0; k < 3; k++)
 			{
 				snprintf(str,
@@ -67,8 +65,6 @@ int main( int argc, char ** argv )
 					"%s%s%s",nums[i],es[j],exps[k] );
 				printf("local_atof(%s) = %f\n\n\n\n", str, scientific_notation_to_double(str)); 
 			}
-		}
-	}
 	return 0;
 }
 

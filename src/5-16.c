@@ -6,7 +6,7 @@
 #include "errno.h"
 
 
-const char * USAGE = "Write a sort() to sort lines, allow for an n arg that sorts by field number n";
+const char * USAGE = "Add the -d (directory order) option, which makes comparisons only on letters, numbers and blanks.  Make sure it works with -f.";
 
 void impl( char * path );
 

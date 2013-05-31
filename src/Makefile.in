@@ -57,12 +57,12 @@ bin_PROGRAMS = 1-16$(EXEEXT) 1-17$(EXEEXT) 1-18$(EXEEXT) 1-1$(EXEEXT) \
 	4-10$(EXEEXT) 4-12$(EXEEXT) 4-1$(EXEEXT) 4-2$(EXEEXT) \
 	4-3$(EXEEXT) 4-4$(EXEEXT) 4-5$(EXEEXT) 4-6$(EXEEXT) \
 	4-7$(EXEEXT) 4-8$(EXEEXT) 4-9$(EXEEXT) 5-13$(EXEEXT) \
-	5-17$(EXEEXT) 5-3$(EXEEXT) 5-4$(EXEEXT) 5-7$(EXEEXT) \
-	5-9$(EXEEXT) 6-1$(EXEEXT) 6-3$(EXEEXT) \
-	6-3-w-hashtable$(EXEEXT) 6-5$(EXEEXT) 7-1$(EXEEXT) \
-	7-3$(EXEEXT) 8-1$(EXEEXT) 8-3$(EXEEXT) 8-4$(EXEEXT) \
-	8-5$(EXEEXT) 8-6$(EXEEXT) 8-7$(EXEEXT) unicodes$(EXEEXT) \
-	test_arraylist_str$(EXEEXT)
+	5-14$(EXEEXT) 5-15$(EXEEXT) 5-16$(EXEEXT) 5-17$(EXEEXT) \
+	5-3$(EXEEXT) 5-4$(EXEEXT) 5-7$(EXEEXT) 5-9$(EXEEXT) \
+	6-1$(EXEEXT) 6-3$(EXEEXT) 6-3-w-hashtable$(EXEEXT) \
+	6-5$(EXEEXT) 7-1$(EXEEXT) 7-3$(EXEEXT) 8-1$(EXEEXT) \
+	8-3$(EXEEXT) 8-4$(EXEEXT) 8-5$(EXEEXT) 8-6$(EXEEXT) \
+	8-7$(EXEEXT) unicodes$(EXEEXT) test_arraylist_str$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -174,8 +174,16 @@ am_4_9_OBJECTS = 4-9.$(OBJEXT) common.$(OBJEXT)
 am_5_13_OBJECTS = 5-13.$(OBJEXT) common.$(OBJEXT)
 5_13_OBJECTS = $(am_5_13_OBJECTS)
 5_13_LDADD = $(LDADD)
-am_5_17_OBJECTS = 5-17.$(OBJEXT) arraylist_str.$(OBJEXT) \
-	common.$(OBJEXT)
+am_5_14_OBJECTS = 5-14.$(OBJEXT)
+5_14_OBJECTS = $(am_5_14_OBJECTS)
+5_14_LDADD = $(LDADD)
+am_5_15_OBJECTS = 5-15.$(OBJEXT)
+5_15_OBJECTS = $(am_5_15_OBJECTS)
+5_15_LDADD = $(LDADD)
+am_5_16_OBJECTS = 5-16.$(OBJEXT)
+5_16_OBJECTS = $(am_5_16_OBJECTS)
+5_16_LDADD = $(LDADD)
+am_5_17_OBJECTS = 5-17.$(OBJEXT)
 5_17_OBJECTS = $(am_5_17_OBJECTS)
 5_17_LDADD = $(LDADD)
 am_5_3_OBJECTS = 5-3.$(OBJEXT) common.$(OBJEXT)
@@ -251,13 +259,13 @@ SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(2_6_SOURCES) $(3_2_SOURCES) $(3_3_SOURCES) $(4_1_SOURCES) \
 	$(4_10_SOURCES) $(4_12_SOURCES) $(4_2_SOURCES) $(4_3_SOURCES) \
 	$(4_4_SOURCES) $(4_5_SOURCES) $(4_6_SOURCES) $(4_7_SOURCES) \
-	$(4_8_SOURCES) $(4_9_SOURCES) $(5_13_SOURCES) $(5_17_SOURCES) \
-	$(5_3_SOURCES) $(5_4_SOURCES) $(5_7_SOURCES) $(5_9_SOURCES) \
-	$(6_1_SOURCES) $(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) \
-	$(6_5_SOURCES) $(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) \
-	$(8_3_SOURCES) $(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) \
-	$(8_7_SOURCES) $(test_arraylist_str_SOURCES) \
-	$(unicodes_SOURCES)
+	$(4_8_SOURCES) $(4_9_SOURCES) $(5_13_SOURCES) $(5_14_SOURCES) \
+	$(5_15_SOURCES) $(5_16_SOURCES) $(5_17_SOURCES) $(5_3_SOURCES) \
+	$(5_4_SOURCES) $(5_7_SOURCES) $(5_9_SOURCES) $(6_1_SOURCES) \
+	$(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) $(6_5_SOURCES) \
+	$(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) $(8_3_SOURCES) \
+	$(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) $(8_7_SOURCES) \
+	$(test_arraylist_str_SOURCES) $(unicodes_SOURCES)
 DIST_SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(1_18_SOURCES) $(1_20_SOURCES) $(1_21_SOURCES) \
 	$(1_22_SOURCES) $(1_23_SOURCES) $(1_23_fread_SOURCES) \
@@ -266,13 +274,13 @@ DIST_SOURCES = $(1_1_SOURCES) $(1_16_SOURCES) $(1_17_SOURCES) \
 	$(2_6_SOURCES) $(3_2_SOURCES) $(3_3_SOURCES) $(4_1_SOURCES) \
 	$(4_10_SOURCES) $(4_12_SOURCES) $(4_2_SOURCES) $(4_3_SOURCES) \
 	$(4_4_SOURCES) $(4_5_SOURCES) $(4_6_SOURCES) $(4_7_SOURCES) \
-	$(4_8_SOURCES) $(4_9_SOURCES) $(5_13_SOURCES) $(5_17_SOURCES) \
-	$(5_3_SOURCES) $(5_4_SOURCES) $(5_7_SOURCES) $(5_9_SOURCES) \
-	$(6_1_SOURCES) $(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) \
-	$(6_5_SOURCES) $(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) \
-	$(8_3_SOURCES) $(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) \
-	$(8_7_SOURCES) $(test_arraylist_str_SOURCES) \
-	$(unicodes_SOURCES)
+	$(4_8_SOURCES) $(4_9_SOURCES) $(5_13_SOURCES) $(5_14_SOURCES) \
+	$(5_15_SOURCES) $(5_16_SOURCES) $(5_17_SOURCES) $(5_3_SOURCES) \
+	$(5_4_SOURCES) $(5_7_SOURCES) $(5_9_SOURCES) $(6_1_SOURCES) \
+	$(6_3_SOURCES) $(6_3_w_hashtable_SOURCES) $(6_5_SOURCES) \
+	$(7_1_SOURCES) $(7_3_SOURCES) $(8_1_SOURCES) $(8_3_SOURCES) \
+	$(8_4_SOURCES) $(8_5_SOURCES) $(8_6_SOURCES) $(8_7_SOURCES) \
+	$(test_arraylist_str_SOURCES) $(unicodes_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -404,7 +412,10 @@ unicodes_SOURCES = unicodes.c
 4_8_SOURCES = 4-8.c common.c common.h
 4_9_SOURCES = 4-9.c common.c common.h
 5_13_SOURCES = 5-13.c common.c common.h
-5_17_SOURCES = 5-17.c arraylist_str.c common.c common.h
+5_14_SOURCES = 5-14.c 
+5_15_SOURCES = 5-15.c 
+5_16_SOURCES = 5-16.c 
+5_17_SOURCES = 5-17.c 
 5_3_SOURCES = 5-3.c common.c common.h
 5_4_SOURCES = 5-4.c common.c common.h
 5_7_SOURCES = 5-7.c common.c common.h
@@ -588,6 +599,15 @@ clean-binPROGRAMS:
 5-13$(EXEEXT): $(5_13_OBJECTS) $(5_13_DEPENDENCIES) $(EXTRA_5_13_DEPENDENCIES) 
 	@rm -f 5-13$(EXEEXT)
 	$(LINK) $(5_13_OBJECTS) $(5_13_LDADD) $(LIBS)
+5-14$(EXEEXT): $(5_14_OBJECTS) $(5_14_DEPENDENCIES) $(EXTRA_5_14_DEPENDENCIES) 
+	@rm -f 5-14$(EXEEXT)
+	$(LINK) $(5_14_OBJECTS) $(5_14_LDADD) $(LIBS)
+5-15$(EXEEXT): $(5_15_OBJECTS) $(5_15_DEPENDENCIES) $(EXTRA_5_15_DEPENDENCIES) 
+	@rm -f 5-15$(EXEEXT)
+	$(LINK) $(5_15_OBJECTS) $(5_15_LDADD) $(LIBS)
+5-16$(EXEEXT): $(5_16_OBJECTS) $(5_16_DEPENDENCIES) $(EXTRA_5_16_DEPENDENCIES) 
+	@rm -f 5-16$(EXEEXT)
+	$(LINK) $(5_16_OBJECTS) $(5_16_LDADD) $(LIBS)
 5-17$(EXEEXT): $(5_17_OBJECTS) $(5_17_DEPENDENCIES) $(EXTRA_5_17_DEPENDENCIES) 
 	@rm -f 5-17$(EXEEXT)
 	$(LINK) $(5_17_OBJECTS) $(5_17_LDADD) $(LIBS)
@@ -683,6 +703,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/4-8.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/4-9.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/5-13.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/5-14.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/5-15.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/5-16.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/5-17.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/5-3.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/5-4.Po@am__quote@

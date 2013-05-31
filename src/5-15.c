@@ -6,7 +6,7 @@
 #include "errno.h"
 
 
-const char * USAGE = "Write a sort() to sort lines, allow for an n arg that sorts by field number n";
+const char * USAGE = "Add the option -f to fold upper and lower case together, so that case distinctions are not made during sorting; for example 'a' and 'A' compare equal.";
 
 void impl( char * path );
 
