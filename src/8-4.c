@@ -2,21 +2,94 @@
 // This file auto-generated on Tue Aug 21 13:50:45 2012
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
-#include "common.h"
+#include <sys/types.h>
+#include <unistd.h>
 
-const char * USAGE = "fseek is identical to lseek, except that fseek takes a file pointer, not a file descriptor\
- write fseek.";
+const char * USAGE = "fseek is identical to lseek, except that fseek takes a file pointer, not a file descriptor. Write fseek.";
 
-void impl( );
+void impl( char * path );
 
 #undef fseek
-int fseek( FILE * fp, long offset, int origin);
+int fseek( FILE * fp, long int offset, int origin)
+{
+	return lseek( fp->_fileno, offset, origin );	
+}
 
 int main( int argc, char ** argv )
 {
 	printf("%s\n",USAGE);
+	while( --argc )
+		impl( *++argv );
+}
+
+void impl( char * path )
+{
+	if( path == NULL )
+	{
+		fprintf(stderr,"Passing null to impl, nothing to do\n");
+		return;
+	}
+	
+	FILE * fp;
+	if(  (fp = fopen(path,"rb")) == NULL)
+	{
+		perror(path);
+		return;
+	}
+	printf("%s opened\n", path);
+
+	if( fseek( fp, 0L, 0 ) == -1 )
+	{
+		perror(path);
+		return;
+	}
+	printf("%s fseek to 0,0\n", path);
+
+	char buf[2];
+	if( read(fp->_fileno, &buf, 1) == -1 )
+	{
+		perror("Error on reading a buf[2]");
+		return;
+	}
+	printf("%s read a char %s\n", path, buf );
+	
+	if( fseek( fp, 3L, 0 ) == -1 )
+	{
+		perror(path);
+		return;
+	}
+	printf("%s fseek to 3,0\n", path);
+
+	if( read(fp->_fileno, &buf, 1) == -1 )
+	{
+		perror("Error on reading a buf[2]");
+		return;
+	}
+	printf("%s read a char %s\n", path, buf );
+
+
+	if( fseek( fp, 6L, 0 ) == -1 )
+	{
+		perror(path);
+		return;
+	}
+	printf("%s fseek to 6,0\n", path);
+
+	if( read(fp->_fileno, &buf, 1) == -1 )
+	{
+		perror("Error on reading a buf[2]");
+		return;
+	}
+	printf("%s read a char %s\n", path, buf );
+
+
+	if( fclose(fp) )
+	{
+		perror(path);
+		return;
+	}
+	printf("%s closed\n", path );
+	
+	
 }
 

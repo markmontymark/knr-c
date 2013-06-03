@@ -262,8 +262,10 @@
    },
    "8-4" : {
       "bin" : "src/8-4",
-      "expected" : "fseek is identical to lseek, except that fseek takes a file pointer, not a file descriptor write fseek.",
-      "name" : "src/8-4"
+      "name" : "src/8-4",
+      "expected" : "fseek is identical to lseek, except that fseek takes a file pointer, not a file descriptor. Write fseek.\ndata/4-4 opened\ndata/4-4 fseek to 0,0\ndata/4-4 read a char 1\ndata/4-4 fseek to 3,0\ndata/4-4 read a char 2\ndata/4-4 fseek to 6,0\ndata/4-4 read a char .\ndata/4-4 closed\n",
+		"args" : "data/4-4"
+
    },
    "8-1" : {
       "bin" : "src/8-1",
