@@ -53,45 +53,51 @@ sub run_tests_on_cfg
 		#$do_save = 1;
 	}
 
-	my $test_args = exists $test_cfg->{args} ? $test_cfg->{args} : undef;
 	unless(exists $test_cfg->{expected} or exists $test_cfg->{regex_expected})
 	{
 		print "Found test with $name but no 'expected' or 'regex_expected' is set...Skipping\n";
 		return;
 	}
-	my $cmdline = $path;
-	$cmdline .= " $test_args" if defined $test_args;
-	&basic_test($cmdline,$test_cfg);
+	&basic_test($test_cfg,$path);
 }
 
 sub basic_test
 {
-	my($cmdline, $test_cfg) = @_;
+	my($test_cfg,$path) = @_;
 	return unless exists $test_cfg->{expected} or exists $test_cfg->{regex_expected};
 	my $test_name = $test_cfg->{name};
+	my $test_args = exists $test_cfg->{args} ? $test_cfg->{args} : undef;
+	my $cmdline = $path;
+	if(defined $test_args)
+	{
+		$test_args =~ s/^\s+//;
+		$test_args =~ s/\s+$//;
+		$cmdline .= " $test_args";
+		$test_name .= " $test_args";
+	}
 	my $got = &trim(join '',`$cmdline`);
 	if(exists $test_cfg->{regex_expected})
 	{
+		#&complain_about_unescaped_regex_modifiers($test_name,$test_cfg->{regex_expected});
 		like($got, $test_cfg->{regex_expected} , $test_name);
+		return;
+	}
+
+	my $r;
+	## handle JSON not allowing multiline string literals by using array ref and joining with \n
+	if( ($r = ref $test_cfg->{expected}) && $r eq 'ARRAY')
+	{
+		is($got, &trim(join "\n",@{$test_cfg->{expected}}) , $test_name );
 	}
 	else
 	{
-		my $r;
-		## handle JSON not allowing multiline string literals by using array ref and joining with \n
-		if( ($r = ref $test_cfg->{expected}) && $r eq 'ARRAY')
-		{
-			is($got, &trim(join "\n",@{$test_cfg->{expected}}) , $test_name);
-		}
-		else
-		{
-			is($got, &trim($test_cfg->{expected}) , $test_name);
-		}
+		is($got, &trim($test_cfg->{expected}) , $test_name);
 	}
 }
 
 sub valgrind_test
 {
-	my($cmdline, $test_cfg) = @_;
+	my($test_cfg,$cmdline) = @_;
 	return unless defined $valgrind;
 	return unless exists $test_cfg->{expected} or exists $test_cfg->{regex_expected};
 	my $test_name = $test_cfg->{name} . ' Valgrind';
@@ -106,6 +112,33 @@ sub valgrind_test
 	}
 }
 
+sub complain_about_unescaped_regex_modifiers
+{
+	my($testname,$str) = @_;
+	my($unwrapped_str) = $str;
+	$unwrapped_str =~ s/^\///;
+	$unwrapped_str =~ s/\/$//s;
+	my @chars = split '',$unwrapped_str;
+	my $i = -1;
+	for(@chars)
+	{
+		$i++;
+		next unless /[?\/*()+.]/;
+		if( /[*+]/)
+		{
+			next if $i > 2 && ($chars[$i - 1] eq '\\' or $chars[$i-2] eq '\\' or $chars[$i-1] eq ']');
+		}
+		elsif( /[()]/)
+		{
+			next if $i > 2 && ($chars[$i - 1] eq '\\' or $chars[$i-2] eq '\\' or $chars[$i+1] eq '{');
+		}
+		else
+		{
+			next if $i > 1 && $chars[$i - 1] eq '\\';
+		}
+		print STDERR "xxxxx   test $testname has regex modifier $_ at pos $i\n";
+	}
+}
 
 sub trim
 {

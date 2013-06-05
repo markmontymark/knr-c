@@ -38,12 +38,45 @@
 		}
 	],
 
-   "5-13" : {
-      "bin" : "src/5-13",
-      "expected" : "Write tail -n to print last n lines of input\n\nExecuting the dynamically linked program\n\nLD_LIBRARY_PATH=.\n./dynamically_linked\n\nThanks\nThanks to Donn Morrison who helped me improve this page.\n\n\n",
-      "name" : "src/5-13",
-		"args" : "data/7-2-cmp"
-   },
+   "5-13" : [
+		{
+			"bin" : "src/5-13",
+			"expected" : "Write tail -n to print last n lines of input\nas the suffix (.so)\nExecuting the dynamically linked program\n\nLD_LIBRARY_PATH=.\n./dynamically_linked\n\nThanks\nThanks to Donn Morrison who helped me improve this page.\n\n\n",
+			"name" : "src/5-13",
+			"args" : "data/7-2-cmp"
+		},
+		{
+			"bin" : "src/5-13",
+			"expected" : "Write tail -n to print last n lines of input\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+			"name" : "src/5-13",
+			"args" : "data/5-13.1"
+		},
+		{
+			"bin" : "src/5-13",
+			"expected" : "Write tail -n to print last n lines of input\n10\n",
+			"name" : "src/5-13",
+			"args" : " -1 data/5-13.1"
+		},
+		{
+			"bin" : "src/5-13",
+			"expected" : "Write tail -n to print last n lines of input\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+			"name" : "src/5-13",
+			"args" : " -9 data/5-13.1"
+		},
+		{
+			"bin" : "src/5-13",
+			"expected" : "Write tail -n to print last n lines of input\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+			"name" : "src/5-13",
+			"args" : " -10 data/5-13.1"
+		},
+		{
+			"bin" : "src/5-13",
+			"expected" : "Write tail -n to print last n lines of input\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+			"name" : "src/5-13",
+			"args" : " -11 data/5-13.1"
+		}
+	],
+
    "2-1" : {
       "bin" : "src/2-1",
       "expected" : "Write a program to print out ranges of char, short, int, long vars (both signed and unsigned)\nunsigned char range is 0 to 255\nunsigned short range is 0 to 65535\n",
