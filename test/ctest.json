@@ -38,13 +38,11 @@
 		}
 	],
 
-
-
-
    "5-13" : {
       "bin" : "src/5-13",
-      "expected" : "Write tail(int n) to print last n lines...also how about allowing for tail -f ?",
-      "name" : "src/5-13"
+      "expected" : "Write tail -n to print last n lines of input\n\nExecuting the dynamically linked program\n\nLD_LIBRARY_PATH=.\n./dynamically_linked\n\nThanks\nThanks to Donn Morrison who helped me improve this page.\n\n\n",
+      "name" : "src/5-13",
+		"args" : "data/7-2-cmp"
    },
    "2-1" : {
       "bin" : "src/2-1",
