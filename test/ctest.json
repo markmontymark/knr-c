@@ -1235,11 +1235,20 @@
 		}
 	],
 
-   "5-16" : {
-      "bin" : "src/5-16",
-      "expected" : "Add the -d (directory order) option, which makes comparisons only on letters, numbers and blanks.  Make sure it works with -f.",
-      "name" : "src/5-16"
-   },
+   "5-16" : [
+		{
+			"bin" : "src/5-16",
+			"expected" : "Add the -d (directory order) option, which makes comparisons only on letters, numbers and blanks.  Make sure it works with -f.\ndictionary sort\n1\n2\n3\n4\n5\n6\na\nb\nc\nd\ne\nf\n",
+			"name" : "src/5-16",
+			"args" : "-d data/5-16.1"
+		},
+		{
+			"bin" : "src/5-16",
+			"expected" : "Add the -d (directory order) option, which makes comparisons only on letters, numbers and blanks.  Make sure it works with -f.\ndictionary sort\n1\n2\n3\n4\n5\n6\na\nb\nc\nc$a\nc$b\nc$$$$$c\nc$d\nd\ne\nf\n",
+			"name" : "src/5-16",
+			"args" : "-d data/5-16.2"
+		}
+	],
 
 	
 	"test_arraylist_str"  : {

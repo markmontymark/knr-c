@@ -36,21 +36,28 @@ int numcmp( char * a, char * b)
 
 int strDirectoryOrdercmp( char * a, char * b)
 {
-	int ai = 0, bi = 0;
-	char ca,cb;
+	int ai = 0, 
+		bi = 0;
 	
 	while( ! isalnum(a[ai]) && ! isblank(a[ai]) && a[ai])
-		ai++;
+		++ai;
 	while( ! isalnum(b[bi]) && ! isblank(b[bi]) && b[bi])
-		bi++;
+		++bi;
 	
-	for( ; a[ai] == b[bi] ; ai++, bi++)
+	while( a[ai] == b[bi])
 	{
 		if( a[ai] == '\0' )
 			return 0;
-		while( ! isalnum(a[ai]) && ! isblank(a[ai]) && a[ai])
+		if( ! isalnum(a[ai]) && ! isblank(a[ai]) && a[ai])
+			while( ! isalnum(a[ai]) && ! isblank(a[ai]) && a[ai])
+				++ai;
+		else
 			ai++;
-		while( ! isalnum(b[bi]) && ! isblank(b[bi]) && b[bi])
+
+		if( ! isalnum(b[bi]) && ! isblank(b[bi]) && b[bi])
+			while( ! isalnum(b[bi]) && ! isblank(b[bi]) && b[bi])
+				++bi;
+		else
 			bi++;
 	}
 	return a[ai] - b[bi];
