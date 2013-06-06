@@ -342,11 +342,34 @@
       "expected" : "Adapt printd, writing a recursive itoa\nitoa(12345) = 12345, strlen 5\nitoa(1234) = 1234, strlen 4\nitoa(123) = 123, strlen 3\nitoa(12) = 12, strlen 2\nitoa(1) = 1, strlen 1\nitoa(1234567) = 1234567, strlen 7\n",
       "name" : "src/4-12"
    },
-   "5-17" : {
-      "bin" : "src/5-17",
-      "expected" : "Write a sort() to sort lines, allow for an n arg that sorts by field number n",
-      "name" : "src/5-17"
-   },
+   "5-17" : [
+		{
+			"bin" : "src/5-17",
+			"expected" : "Add a field handling capability, so sorting may be done on fields within lines, each field sorted according to an independent set of options. (The index for this book was sorted -df for the index category and -n for the page numbers.)\n1 1\n2 2\n3 3\n4 4\n",
+			"name" : "src/5-17",
+			"args" : "data/5-17.1"
+		},
+		{
+			"bin" : "src/5-17",
+			"expected" : "Add a field handling capability, so sorting may be done on fields within lines, each field sorted according to an independent set of options. (The index for this book was sorted -df for the index category and -n for the page numbers.)\nnumeric sort\nnumeric sort field 1\n12 1\n32 3\n122 2\n142 4\n",
+			"name" : "src/5-17",
+			"args" : " -n1 data/5-17.2"
+		},
+		{
+			"bin" : "src/5-17",
+			"expected" : "Add a field handling capability, so sorting may be done on fields within lines, each field sorted according to an independent set of options. (The index for this book was sorted -df for the index category and -n for the page numbers.)\nnumeric sort\nnumeric sort field 2\n12 1\n122 2\n32 3\n142 4\n",
+			"name" : "src/5-17",
+			"args" : " -n2 data/5-17.2"
+		},
+
+		{
+			"bin" : "src/5-17",
+			"expected" : "Add a field handling capability, so sorting may be done on fields within lines, each field sorted according to an independent set of options. (The index for this book was sorted -df for the index category and -n for the page numbers.)\nnumeric sort\nnumeric sort field 3\n122 2 0\n142 4 3\n12 1 5\n32 3 9\n",
+			"name" : "src/5-17",
+			"args" : "-n3 data/5-17.3"
+		}
+	],
+
    "6-3-w-hashtable" : {
       "bin" : "src/6-3-w-hashtable",
       "expected" : "Write a cross-referencer that prints a list of all words in  a document and, for each word, a list of the line numbers of occurences of each word.  Have an ignore list of words like 'a', 'the, etc.\nkey: asdff, val: 1\nkey: adsff, val: 1\nkey: qewvvvr, val: 1\nkey: gfdsfdasdfa, val: 1\nkey: asdfzxcvdsafd, val: 1\nkey: qewr, val: 5\nkey: rewq, val: 1\nkey: qewaaaar, val: 2\n",
