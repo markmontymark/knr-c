@@ -172,8 +172,9 @@
    },
    "4-8" : {
       "bin" : "src/4-8",
-      "expected" : "",
-      "name" : "src/4-8"
+      "expected" : "Suppose that there will never be more than one char of pushback, Modify getch and ungetch accordingly\n12 23 . > . -\n",
+      "name" : "src/4-8",
+		"args" : "< data/4-4"
    },
    "1-23-fread" : {
       "bin" : "src/1-23-fread",
