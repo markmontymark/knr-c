@@ -168,7 +168,7 @@ sub walk
 		}
 	}
 	closedir D;
-	$callback->($_) for sort @bins;
+	$callback->($_) for sort {dictionary_sort($a,$b)} @bins;
 	&walk($callback,$_) for sort @dirs;
 }
 
@@ -179,3 +179,24 @@ sub save_cfg
    File::Slurp::write_file($path,$coder->encode($cfg));
 }
 
+sub dictionary_sort {
+	my($a,$b) = @_;
+	my($a_chap, $a_sct) = $a =~ m/\/(\d+)-(\d+)/;
+	my($b_chap, $b_sct) = $b =~ m/\/(\d+)-(\d+)/;
+	return -1 unless defined $a_chap && defined $a_sct;
+	return  1 unless defined $b_chap && defined $b_sct;
+
+	if($a_chap < $b_chap) {
+		return -1;
+	}
+	elsif( $b_chap < $a_chap ) {
+		return 1;
+	}
+	if( $a_sct < $b_sct ) {
+		return -1;
+	}
+	elsif ( $b_sct < $a_sct ) {
+		return 1;
+	}
+	return 0;
+}
