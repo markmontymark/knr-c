@@ -22,7 +22,7 @@ int IS_CASE_INSENSITIVE_FIELD = 0;
 int IS_DICTIONARY_FIELD = 0;
 
 
-int getline(FILE * fp, char * str, int maxlen );
+int getline_(FILE * fp, char * str, int maxlen );
 
 static char allocbuf[ALLOCSIZE];
 static char * allocp = allocbuf;
@@ -54,7 +54,7 @@ char * get_field( char * line, int field )
 	for( ; *line; )
 	{
 		if( f == field )
-			return line;	
+			return line;
 		if( isblank(*line) )
 		{
 			f++;
@@ -92,15 +92,15 @@ int numfieldcmp( char * aline, char * bline)
 
 int strDirectoryOrdercmp( char * a, char * b)
 {
-	int ai = 0, 
+	int ai = 0,
 		bi = 0;
 
-	
+
 	while( ! isalnum(a[ai]) && ! isblank(a[ai]) && a[ai])
 		++ai;
 	while( ! isalnum(b[bi]) && ! isblank(b[bi]) && b[bi])
 		++bi;
-	
+
 	while( IS_CASE_INSENSITIVE ? (tolower(a[ai]) == tolower(b[bi])) : (a[ai] == b[bi]) )
 	{
 		if( a[ai] == '\0' )
@@ -152,16 +152,16 @@ void qsort_ex_5_14( void *v[], int left, int right, int ( * cmp )( void * , void
 }
 
 
-int getline(FILE * fp, char * str, int maxlen )
+int getline_(FILE * fp, char * str, int maxlen )
 {
 	int c,
-		i, 
+		i,
 		maxlenMinusOne = maxlen - 1;
 
-	for( i = 0;  
-			i < maxlenMinusOne && 
-			(c = fgetc(fp)) != EOF  && 
-			(c != '\n') ; 
+	for( i = 0;
+			i < maxlenMinusOne &&
+			(c = fgetc(fp)) != EOF  &&
+			(c != '\n') ;
 		++i )
 	{
 		str[i] = c;
@@ -190,7 +190,7 @@ int readlines( FILE * fp, char * lineptr[], int maxlines )
 	char * p,
 		line[MAXLEN];
 
-	while( (len = getline(fp, line, MAXLEN)) > 0)
+	while( (len = getline_(fp, line, MAXLEN)) > 0)
 	{
 		if(nlines >= maxlines || (p=alloc(len)) == NULL)
 			return -1;
@@ -270,14 +270,14 @@ void impl( char * path )
 		perror(path);
 		return;
 	}
-	
-	
+
+
 	int nlines = 0;
 
 	char * lineptr[MAXLINES];
 	if(  (nlines = readlines( fp, lineptr, MAXLINES)) >= 0 )
 	{
-		int (*comparator)(void*,void*) = 
+		int (*comparator)(void*,void*) =
 			IS_NUMERIC ? (IS_NUMERIC_FIELD ? ((int(*)(void*,void*))numfieldcmp) : ((int(*)(void*,void*))numcmp) ) :
 			IS_DICTIONARY ? (IS_DICTIONARY_FIELD ? ((int(*)(void*,void*))strDirectoryOrderFieldcmp) : ((int(*)(void*,void*))strDirectoryOrdercmp) ) :
 			IS_CASE_INSENSITIVE ? (IS_CASE_INSENSITIVE_FIELD ? ((int(*)(void*,void*))strcaseFieldcmp) : ((int(*)(void*,void*))strcasecmp) ) :
@@ -290,6 +290,6 @@ void impl( char * path )
 		printf("Error, too many lines to sort, max is %d\n",MAXLINES);
 		return;
 	}
-	
+
 	fclose(fp);
 }

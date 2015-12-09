@@ -65,7 +65,12 @@ int tail( char * path, int num_lines )
 	int c;
 	int num_lines_found = 0;
 	long pos;
+#ifdef __APPLE__
+	if( (pos = lseek(fp->_file,0L,SEEK_END)) == -1)
+#else
 	if( (pos = lseek(fp->_fileno,0L,SEEK_END)) == -1)
+#endif
+
 	{
 		fprintf(stderr, "Error, first fseek of %s: %s\n",path,strerror(errno));
 		return EXIT_FAILURE;
@@ -82,7 +87,7 @@ int tail( char * path, int num_lines )
 	{
 		if( (-1 * seekpos) > endpos )
 			seekpos = -1 * endpos;
-		
+
 		if( (fseek(fp, seekpos, SEEK_END)) == -1 )
 		{
 			fprintf(stderr, "Error, fseek of %s: %s\n",path,strerror(errno));
@@ -93,9 +98,13 @@ int tail( char * path, int num_lines )
 		//printf("fseek to new pos %li endpos %li seekpos %li\n",pos,endpos,seekpos);
 		bytesRead = 0;
 		charp = chars;
-		while( (bytesRead += read(fp->_fileno,charp,bufsize - bytesRead)) < (-1*seekpos) )
+#ifdef __APPLE__
+		while( (bytesRead += read(fp->_file,charp,bufsize - bytesRead)) < ((-1)*seekpos) )
+#else
+		while( (bytesRead += read(fp->_fileno,charp,bufsize - bytesRead)) < ((-1)*seekpos) )
+#endif
 		{
-			//printf("read %d bytes\n",bytesRead );
+			printf("read %d bytes, seekpos %ld,charp %s\n",bytesRead,seekpos,charp );
 			charp += bytesRead;
 		}
 		for(int i = bytesRead - 1; i > -1; i--)

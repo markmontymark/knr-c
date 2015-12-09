@@ -9,7 +9,7 @@ const char * USAGE = "Modify the sort program to handle a -r flag, which indicat
 #define ALLOCSIZE 100000
 
 
-int getline(FILE * fp, char * str, int maxlen );
+int getline_5_14(FILE * fp, char * str, int maxlen );
 
 static char allocbuf[ALLOCSIZE];
 static char * allocp = allocbuf;
@@ -54,16 +54,16 @@ void qsort_ex_5_14( void *v[], int left, int right, int ( * cmp )( void * , void
 }
 
 
-int getline(FILE * fp, char * str, int maxlen )
+int getline_5_14(FILE * fp, char * str, int maxlen )
 {
 	int c,
-		i, 
+		i,
 		maxlenMinusOne = maxlen - 1;
 
-	for( i = 0;  
-			i < maxlenMinusOne && 
-			(c = fgetc(fp)) != EOF  && 
-			(c != '\n') ; 
+	for( i = 0;
+			i < maxlenMinusOne &&
+			(c = fgetc(fp)) != EOF  &&
+			(c != '\n') ;
 		++i )
 	{
 		str[i] = c;
@@ -92,7 +92,7 @@ int readlines( FILE * fp, char * lineptr[], int maxlines )
 	char * p,
 		line[MAXLEN];
 
-	while( (len = getline(fp, line, MAXLEN)) > 0)
+	while( (len = getline_5_14(fp, line, MAXLEN)) > 0)
 	{
 		if(nlines >= maxlines || (p=alloc(len)) == NULL)
 			return -1;
@@ -129,15 +129,15 @@ void impl( char * path, int is_numeric )
 		perror(path);
 		return;
 	}
-	
-	
+
+
 	int nlines = 0;
 
 	char * lineptr[MAXLINES];
 	if(  (nlines = readlines( fp, lineptr, MAXLINES)) >= 0 )
 	{
-		int (*comparator)(void*,void*) = is_numeric ? 
-			(int(*)(void*,void*))numcmp : 
+		int (*comparator)(void*,void*) = is_numeric ?
+			(int(*)(void*,void*))numcmp :
 			(int(*)(void*,void*))strcmp;
 		qsort_ex_5_14( (void **)lineptr, 0, nlines - 1, comparator);
 		writelines( lineptr, nlines);
@@ -147,6 +147,6 @@ void impl( char * path, int is_numeric )
 		printf("Error, too many lines to sort, max is %d\n",MAXLINES);
 		return;
 	}
-	
+
 	fclose(fp);
 }

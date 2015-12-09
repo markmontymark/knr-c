@@ -6,7 +6,11 @@
 
 #include "sorted_tree.h"
 
+#ifdef __APPLE__
+char * strdup(const char *);
+#else
 char * strdup(char *);
+#endif
 
 
 ordered_tree_str_t * ordered_tree_str_new(char * str)

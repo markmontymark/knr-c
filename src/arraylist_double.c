@@ -9,14 +9,14 @@ static const size_t arraylist_double_s  = sizeof(arraylist_double_t);
 
 #define ARRAYLIST_double_COMPARATOR(a,b) a == b
 
-arraylist_double_t * arraylist_double_new() 
+arraylist_double_t * arraylist_double_new()
 {
 	arraylist_double_t * list = malloc(arraylist_double_s);
 	if(list == NULL)
 	{
 		fprintf(stderr,"Error malloc'ing size %lu in arralist_double_new: %s\n", (unsigned long)arraylist_double_s, strerror(errno) );
-		return NULL;	
-	}	
+		return NULL;
+	}
 	list->size = 0;
 	list->data = NULL;
 	return list;
@@ -29,7 +29,7 @@ double arraylist_double_size(arraylist_double_t * list)
 }
 
 
-void arraylist_double_add(arraylist_double_t * list, double value) 
+void arraylist_double_add(arraylist_double_t * list, double value)
 {
 	double ** data;
 	int size = arraylist_double_size(list);
@@ -47,7 +47,7 @@ void arraylist_double_add(arraylist_double_t * list, double value)
 	++list->size;
 }
 
-double arraylist_double_get(arraylist_double_t * list, int index) 
+double arraylist_double_get(arraylist_double_t * list, int index)
 {
 	if(index < arraylist_double_size(list))
 		return *(list->data[index]);
@@ -58,20 +58,20 @@ void arraylist_double_set(arraylist_double_t * list, int index, double value)
 {
    if(index > list->size)
    {
-      fprintf(stderr,"Error trying to set value %d at invalid index %d\n", value,index);
+      fprintf(stderr,"Error trying to set value %f at invalid index %d\n", value,index);
       return;
    }
    *(list->data[index]) = value;
 }
 
 
-double arraylist_double_indexof(arraylist_double_t * list, double value) 
+double arraylist_double_indexof(arraylist_double_t * list, double value)
 {
 	int sz = arraylist_double_size( list );
-	for(int i = 0; i != sz; i++ ) 
-		if(ARRAYLIST_double_COMPARATOR( *(list->data[i]), value) == 0) 
+	for(int i = 0; i != sz; i++ )
+		if(ARRAYLIST_double_COMPARATOR( *(list->data[i]), value) == 0)
 			return i;
-	//if(strcmp(list->data[i], value) == 0) 
+	//if(strcmp(list->data[i], value) == 0)
 	return -1;
 }
 

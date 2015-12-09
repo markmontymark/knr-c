@@ -14,7 +14,7 @@ const char * USAGE = "Rewrite readlines() to store lines provided by main() rath
 #define ALLOCSIZE ((MAXLEN) * (MAXLINE))
 
 
-int getline ( char *, int);
+int getline_( char *, int);
 int orig_readlines( char **, int);
 int readlines( char **, char *, char *, char *, int);
 char * alloc(char [], char *, int);
@@ -36,10 +36,10 @@ int readlines(char ** lineptr, char * line, char * allocbuf, char * allocp, int 
 	int len,
 		nlines;
 	char * p;
-	
+
 	nlines = 0;
 
-	while( (len = getline(line,MAXLEN)) > 0 )
+	while( (len = getline_(line,MAXLEN)) > 0 )
 	{
 		if( nlines >= maxlines || (p=alloc(allocbuf,allocp,len)) == NULL)
 			return -1;
@@ -48,17 +48,17 @@ int readlines(char ** lineptr, char * line, char * allocbuf, char * allocp, int 
 			line[len - 1] = '\0'; // delete newline
 			strcpy(p,line);
 			lineptr[ nlines++ ] = p;
-			
+
 		}
 	}
 	return nlines;
 }
 
-int getline( char * line, int limit)
+int getline_( char * line, int limit)
 {
 	int c,
 		i;
-	
+
 	for( i = 0; i < MAXLINE - 1 &&
 			(c=getchar()) != EOF && c != '\n';
 			i++)
@@ -81,5 +81,5 @@ char * alloc( char * allocbuf, char * allocp, int length)
 		allocp += length;
 		return allocp - length;
 	}
-	else return 0;	
+	else return 0;
 }

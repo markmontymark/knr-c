@@ -38,7 +38,7 @@
 		}
 	],
 
-   "5-13" : [
+   "o5-13" : [
 		{
 			"bin" : "src/5-13",
 			"expected" : "Write tail -n to print last n lines of input\nas the suffix (.so)\nExecuting the dynamically linked program\n\nLD_LIBRARY_PATH=.\n./dynamically_linked\n\nThanks\nThanks to Donn Morrison who helped me improve this page.\n\n\n",
@@ -277,7 +277,7 @@
    },
    "7-3" : {
       "bin" : "src/7-3",
-      "regex_expected" : "/^Revise minprintf to handle more of the other facilities of printf\nThis is an int 10\nThis is an double 10.000000\nThis is a string 10\nThis is a literal % followed by a char [*] of % and a char 37\nThis is a long int 1234567891011121314\nThis is a long long int 1234567891011121314\nThis is a pointer not initialized [(]nil[)]\nThis is a pointer initialized 0x[0-9A-Za-z]+/",
+      "regex_expected" : "/^Revise minprintf to handle more of the other facilities of printf\nThis is an int 10\nThis is an double 10.000000\nThis is a string 10\nThis is a literal % followed by a char [*] of % and a char 37\nThis is a long int 1234567891011121314\nThis is a long long int 1234567891011121314\nThis is a pointer not initialized (?:[(]nil[)]|0x[0-9A-Za-z]+)\nThis is a pointer initialized 0x[0-9A-Za-z]+/",
       "name" : "src/7-3"
    },
    "1-24-stack" : {
@@ -425,24 +425,24 @@
 "",
 "",
 "",
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
-"", 
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
 "a",
 "a",
 "a",
@@ -1274,7 +1274,7 @@
 		}
 	],
 
-	
+
 	"test_arraylist_str"  : {
 		"bin" : "src/test_arraylist_str",
 		"name" : "src/test_arraylist_str",

@@ -12,7 +12,7 @@ const char * USAGE = "Add the option -f to fold upper and lower case together, s
 #define ALLOCSIZE 100000
 
 
-int getline(FILE * fp, char * str, int maxlen );
+int getline_5_15(FILE * fp, char * str, int maxlen );
 
 static char allocbuf[ALLOCSIZE];
 static char * allocp = allocbuf;
@@ -57,16 +57,16 @@ void qsort_ex_5_14( void *v[], int left, int right, int ( * cmp )( void * , void
 }
 
 
-int getline(FILE * fp, char * str, int maxlen )
+int getline_5_15(FILE * fp, char * str, int maxlen )
 {
 	int c,
-		i, 
+		i,
 		maxlenMinusOne = maxlen - 1;
 
-	for( i = 0;  
-			i < maxlenMinusOne && 
-			(c = fgetc(fp)) != EOF  && 
-			(c != '\n') ; 
+	for( i = 0;
+			i < maxlenMinusOne &&
+			(c = fgetc(fp)) != EOF  &&
+			(c != '\n') ;
 		++i )
 	{
 		str[i] = c;
@@ -95,7 +95,7 @@ int readlines( FILE * fp, char * lineptr[], int maxlines )
 	char * p,
 		line[MAXLEN];
 
-	while( (len = getline(fp, line, MAXLEN)) > 0)
+	while( (len = getline_5_15(fp, line, MAXLEN)) > 0)
 	{
 		if(nlines >= maxlines || (p=alloc(len)) == NULL)
 			return -1;
@@ -120,9 +120,9 @@ int main( int argc, char ** argv )
 		is_case_insensitive = 0,
 		opt;
 
-	while( (opt = getopt(argc, argv, "nf")) != -1 ) 
+	while( (opt = getopt(argc, argv, "nf")) != -1 )
 	{
-		switch (opt) 
+		switch (opt)
 		{
 			case 'n':
 				printf("numeric sort\n");
@@ -149,15 +149,15 @@ void impl( char * path, int is_numeric, int is_case_insensitive )
 		perror(path);
 		return;
 	}
-	
-	
+
+
 	int nlines = 0;
 
 	char * lineptr[MAXLINES];
 	if(  (nlines = readlines( fp, lineptr, MAXLINES)) >= 0 )
 	{
-		int (*comparator)(void*,void*) = 
-			is_numeric ?  (int(*)(void*,void*))numcmp : 
+		int (*comparator)(void*,void*) =
+			is_numeric ?  (int(*)(void*,void*))numcmp :
 			is_case_insensitive ?  (int(*)(void*,void*))strcasecmp :
 				(int(*)(void*,void*))strcmp;
 		qsort_ex_5_14( (void **)lineptr, 0, nlines - 1, comparator);
@@ -168,6 +168,6 @@ void impl( char * path, int is_numeric, int is_case_insensitive )
 		printf("Error, too many lines to sort, max is %d\n",MAXLINES);
 		return;
 	}
-	
+
 	fclose(fp);
 }

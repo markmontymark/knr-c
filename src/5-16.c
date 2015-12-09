@@ -13,7 +13,7 @@ const char * USAGE = "Add the -d (directory order) option, which makes compariso
 #define ALLOCSIZE 100000
 
 
-int getline(FILE * fp, char * str, int maxlen );
+int getline_5_16(FILE * fp, char * str, int maxlen );
 
 static char allocbuf[ALLOCSIZE];
 static char * allocp = allocbuf;
@@ -36,14 +36,14 @@ int numcmp( char * a, char * b)
 
 int strDirectoryOrdercmp( char * a, char * b)
 {
-	int ai = 0, 
+	int ai = 0,
 		bi = 0;
-	
+
 	while( ! isalnum(a[ai]) && ! isblank(a[ai]) && a[ai])
 		++ai;
 	while( ! isalnum(b[bi]) && ! isblank(b[bi]) && b[bi])
 		++bi;
-	
+
 	while( a[ai] == b[bi])
 	{
 		if( a[ai] == '\0' )
@@ -97,16 +97,16 @@ void qsort_ex_5_14( void *v[], int left, int right, int ( * cmp )( void * , void
 }
 
 
-int getline(FILE * fp, char * str, int maxlen )
+int getline_5_16(FILE * fp, char * str, int maxlen )
 {
 	int c,
-		i, 
+		i,
 		maxlenMinusOne = maxlen - 1;
 
-	for( i = 0;  
-			i < maxlenMinusOne && 
-			(c = fgetc(fp)) != EOF  && 
-			(c != '\n') ; 
+	for( i = 0;
+			i < maxlenMinusOne &&
+			(c = fgetc(fp)) != EOF  &&
+			(c != '\n') ;
 		++i )
 	{
 		str[i] = c;
@@ -135,7 +135,7 @@ int readlines( FILE * fp, char * lineptr[], int maxlines )
 	char * p,
 		line[MAXLEN];
 
-	while( (len = getline(fp, line, MAXLEN)) > 0)
+	while( (len = getline_5_16(fp, line, MAXLEN)) > 0)
 	{
 		if(nlines >= maxlines || (p=alloc(len)) == NULL)
 			return -1;
@@ -161,9 +161,9 @@ int main( int argc, char ** argv )
 		is_dictionary = 0,
 		opt;
 
-	while( (opt = getopt(argc, argv, "dnf")) != -1 ) 
+	while( (opt = getopt(argc, argv, "dnf")) != -1 )
 	{
-		switch (opt) 
+		switch (opt)
 		{
 			case 'd':
 				printf("dictionary sort\n");
@@ -194,16 +194,16 @@ void impl( char * path, int is_numeric, int is_case_insensitive, int is_dictiona
 		perror(path);
 		return;
 	}
-	
-	
+
+
 	int nlines = 0;
 
 	char * lineptr[MAXLINES];
 	if(  (nlines = readlines( fp, lineptr, MAXLINES)) >= 0 )
 	{
-		int (*comparator)(void*,void*) = 
-			is_numeric ?  (int(*)(void*,void*))numcmp : 
-			is_dictionary ?  (int(*)(void*,void*))strDirectoryOrdercmp : 
+		int (*comparator)(void*,void*) =
+			is_numeric ?  (int(*)(void*,void*))numcmp :
+			is_dictionary ?  (int(*)(void*,void*))strDirectoryOrdercmp :
 			is_case_insensitive ?  (int(*)(void*,void*))strcasecmp :
 				(int(*)(void*,void*))strcmp;
 		qsort_ex_5_14( (void **)lineptr, 0, nlines - 1, comparator);
@@ -214,6 +214,6 @@ void impl( char * path, int is_numeric, int is_case_insensitive, int is_dictiona
 		printf("Error, too many lines to sort, max is %d\n",MAXLINES);
 		return;
 	}
-	
+
 	fclose(fp);
 }
